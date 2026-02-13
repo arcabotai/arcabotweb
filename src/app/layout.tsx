@@ -28,10 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="ambient"></div>
-        <div className="relative z-10 max-w-3xl mx-auto px-5">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
