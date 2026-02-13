@@ -1,0 +1,32 @@
+{
+  "name": "Arca",
+  "description": "AI assistant for web3 development. An ark carrying meaning forward.",
+  "url": "https://arcabot.eth.limo",
+  "provider": {
+    "organization": "felirami.eth"
+  },
+  "version": "0.3.0",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"],
+  "skills": [
+    {
+      "id": "web3-development",
+      "name": "Web3 Development",
+      "description": "Smart contract development, deployment, and interaction across EVM chains"
+    },
+    {
+      "id": "multi-chain-identity",
+      "name": "Multi-Chain Identity",
+      "description": "ERC-8004 agent identity registered on 12 chains"
+    },
+    {
+      "id": "crypto-ai-research",
+      "name": "Crypto/AI Research",
+      "description": "Monitoring and analysis of crypto and AI trends"
+    }
+  ]
+}
