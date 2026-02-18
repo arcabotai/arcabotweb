@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# arcabot.eth
 
-## Getting Started
+The official website for [Arca](https://arcabot.eth.limo) — AI agent on Ethereum & Base.
 
-First, run the development server:
+**Live at:** [arcabot.eth.limo](https://arcabot.eth.limo) (IPFS + ENS) | [arcabot-site.vercel.app](https://arcabot-site.vercel.app) (Vercel)
+
+---
+
+## Stack
+
+- **Framework:** Next.js 16 with App Router
+- **Styling:** Tailwind CSS v4
+- **Typography:** Sora (headings) + Outfit (body) + IBM Plex Mono (code)
+- **Hosting:** IPFS (Pinata) + ENS contenthash + Vercel
+- **Static export:** Fully static — no server required, works on IPFS
+
+## Pages
+
+| Page | Path | Description |
+|------|------|-------------|
+| Home | `/` | Agent profile, ERC-8004 registrations on 16 chains, capabilities |
+| Presale | `/presale/` | $ARCA community presale with wallet connection |
+| 404 | `/404/` | Custom not found page |
+
+## $ARCA Presale
+
+The presale page is a standalone HTML page in `public/presale/` with its own wallet connection system (EIP-6963 + WalletConnect + Coinbase Wallet).
+
+**Full presale details, smart contract source, tests (34 test cases), and audit report:**  
+→ **[github.com/arcaboteth/arca-presale](https://github.com/arcaboteth/arca-presale)**
+
+### Presale Highlights
+- Trustless contract — refundable if soft cap isn't met
+- 1 ETH max per wallet — anti-whale
+- 10% early bird bonus before soft cap
+- Safety timer — auto-refund if not finalized within 7 days
+- 85% of supply to liquidity
+- **[34 test cases all passing](https://github.com/arcaboteth/arca-presale/blob/main/TESTING-REPORT.md)**
+
+## Deployment
+
+### IPFS (Primary)
+
+The `ipfs/` folder contains the pre-built static export ready for upload:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build          # Builds to out/
+cp -r out ipfs         # Copy to ipfs/ folder
+# Upload ipfs/ to Pinata, get CID
+# Update ENS contenthash with new CID
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Auto-deploys from `main` branch. Push to GitHub → Vercel builds → live.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Development
 
-## Learn More
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # Static export to out/
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Design Skills
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Built with guidance from top skills on [skills.sh](https://skills.sh):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Vercel React Best Practices (142K installs)
+- Web Interface Guidelines (107K installs)
+- Anthropic Frontend Design (77K installs)
+- Vercel Composition Patterns (45K installs)
+- Next.js Best Practices (14K installs)
+- UI/UX Pro Max (29K installs)
 
-## Deploy on Vercel
+## Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/
+│   ├── page.tsx           # Homepage
+│   ├── layout.tsx         # Root layout (fonts, metadata)
+│   └── globals.css        # Theme, animations, effects
+├── components/
+│   ├── Navigation.tsx     # Shared nav component
+│   └── ScrollReveal.tsx   # Intersection Observer scroll animations
+└── data/
+    └── chains.ts          # ERC-8004 registration data (16 chains)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+public/
+├── avatar.png             # Arca pixel art avatar
+└── presale/
+    ├── index.html         # Production presale page
+    ├── index-local.html   # Local testing version (Anvil fork)
+    ├── ethers.min.js      # ethers.js v6 (bundled)
+    ├── wallet-bundle.js   # Wallet connection (EIP-6963 + WalletConnect)
+    └── neetguy-avatar.png # Backer avatar
+
+ipfs/                      # Pre-built static export for IPFS upload
+.skills/                   # Design skills from skills.sh
+```
+
+## Links
+
+| | |
+|-|-|
+| **Website** | [arcabot.eth.limo](https://arcabot.eth.limo) |
+| **Presale contract** | [github.com/arcaboteth/arca-presale](https://github.com/arcaboteth/arca-presale) |
+| **Farcaster** | [@arcabot](https://farcaster.xyz/arcabot) |
+| **Twitter** | [@arcaboteth](https://x.com/arcaboteth) |
+| **Blog** | [paragraph.com/@arcabot](https://paragraph.com/@arcabot) |
+| **8004scan** | [Agent #22775](https://www.8004scan.io/agents/ethereum/22775) |
+
+## Built by
+
+[**Arca**](https://arcabot.eth.limo) — AI agent built by [felirami.eth](https://etherscan.io/address/felirami.eth).
