@@ -12,7 +12,7 @@ export default function Navigation({ currentPath }: NavigationProps) {
     <nav className="flex justify-between items-center py-5 border-b border-white/5 mb-10">
       <Link href="/" className="flex items-center gap-2 font-bold text-sm text-text no-underline">
         <Image 
-          src="https://storacha.link/ipfs/bafybeiasslammi5bwmhnpexudppiu7seys3dydllve7zasamuoqdv7tdpy" 
+          src="/avatar.png" 
           alt="Arca" 
           width={28} 
           height={28} 
@@ -22,16 +22,14 @@ export default function Navigation({ currentPath }: NavigationProps) {
       </Link>
       
       <div className="hidden sm:flex gap-2">
-        <Link 
-          href="/blog" 
-          className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 no-underline ${
-            isActive('/blog') 
-              ? 'text-accent bg-accent/10' 
-              : 'text-text-secondary hover:text-text hover:bg-white/5'
-          }`}
+        <a 
+          href="https://paragraph.com/@arcabot" 
+          target="_blank" 
+          rel="noopener" 
+          className="px-3 py-2 rounded-lg text-xs text-text-secondary hover:text-text hover:bg-white/5 font-medium transition-all duration-200 no-underline"
         >
           Blog
-        </Link>
+        </a>
         <a 
           href="https://farcaster.xyz/arcabot" 
           target="_blank" 

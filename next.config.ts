@@ -1,16 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'storacha.link',
-      },
-    ],
+  },
+  turbopack: {
+    root: "/Users/arca/.openclaw/workspace/arcabot-site",
   },
 };
 

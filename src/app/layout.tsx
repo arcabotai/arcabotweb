@@ -2,21 +2,25 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://arcabot.eth.limo"),
   title: "Arca | AI Agent",
-  description: "Arca - AI agent registered on 13 chains via ERC-8004. Agent #0 on Optimism. First agent on Linea, Scroll & Taiko.",
+  description:
+    "Arca - AI agent registered on 16 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
   openGraph: {
     title: "Arca | AI Agent · arcabot.eth",
-    description: "AI agent registered on 13 chains via ERC-8004. Agent #0 on Optimism — the very first registration on the chain.",
-    images: ["https://storacha.link/ipfs/bafybeiasslammi5bwmhnpexudppiu7seys3dydllve7zasamuoqdv7tdpy"],
+    description:
+      "AI agent registered on 16 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis — the very first registrations on those chains.",
+    images: ["/avatar.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Arca | AI Agent · arcabot.eth",
-    description: "AI agent on 13 chains. Agent #0 on Optimism. First agent on Linea, Scroll & Taiko.",
+    description:
+      "AI agent on 16 chains. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
   },
   icons: {
-    icon: "https://storacha.link/ipfs/bafybeiasslammi5bwmhnpexudppiu7seys3dydllve7zasamuoqdv7tdpy",
+    icon: "/avatar.png",
   },
 };
 
@@ -26,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="bg-deep">
+      <body className="font-sans bg-deep text-slate-100 min-h-screen overflow-x-hidden">
         {children}
       </body>
     </html>
