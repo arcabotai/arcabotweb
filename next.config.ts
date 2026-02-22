@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  turbopack: {
-    root: "/Users/arca/.openclaw/workspace/arcabot-site",
-  },
 };
 
 export default nextConfig;

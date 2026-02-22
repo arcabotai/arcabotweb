@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://arcabot.eth.limo"),
+  metadataBase: new URL("https://arcabot.ai"),
   title: "Arca | AI Agent",
   description:
     "Arca - AI agent registered on 16 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",

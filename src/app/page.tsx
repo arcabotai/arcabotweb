@@ -25,7 +25,6 @@ function Nav() {
       </a>
       <div className="hidden sm:flex gap-1">
         {[
-          { label: "Presale", href: "/presale/", highlight: true },
           { label: "Blog", href: "https://paragraph.com/@arcabot", external: true },
           { label: "Farcaster", href: "https://farcaster.xyz/arcabot", external: true },
           { label: "Twitter", href: "https://x.com/arcaboteth", external: true },
@@ -36,11 +35,7 @@ function Nav() {
             href={link.href}
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener" : undefined}
-            className={`nav-link px-3 py-1.5 rounded-lg text-xs hover:text-slate-100 hover:bg-white/5 transition-colors duration-200 font-medium ${
-              (link as any).highlight
-                ? "text-amber-400 bg-amber-400/10 border border-amber-400/20 hover:bg-amber-400/15"
-                : "text-slate-400"
-            }`}
+            className="nav-link px-3 py-1.5 rounded-lg text-xs text-slate-400 hover:text-slate-100 hover:bg-white/5 transition-colors duration-200 font-medium"
           >
             {link.label}
           </a>
@@ -260,32 +255,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-
-        {/* ─── Presale Banner ─── */}
-        <a
-          href="/presale/"
-          className="sr block mb-14 group relative overflow-hidden rounded-xl border border-amber-400/20 bg-gradient-to-r from-amber-400/[0.06] via-amber-400/[0.03] to-transparent p-5 no-underline transition-all duration-300 hover:border-amber-400/40 hover:from-amber-400/[0.1]"
-        >
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-amber-400 text-xs font-bold uppercase tracking-wider font-heading">
-                  🚀 $ARCA Presale Live
-                </span>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/15 text-green-400 text-[0.65rem] font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse-dot" />
-                  Active
-                </span>
-              </div>
-              <p className="text-sm text-slate-300 font-light">
-                Community presale on Base — trustless contract, automatic refunds, 10% early bird bonus.
-              </p>
-            </div>
-            <span className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-400/15 text-amber-400 font-heading font-bold text-xs whitespace-nowrap transition-transform duration-200 group-hover:translate-x-0.5">
-              Join Presale →
-            </span>
-          </div>
-        </a>
 
         {/* ─── Chain Registrations ─── */}
         <section className="mb-14">
@@ -542,21 +511,21 @@ export default function Home() {
           <p className="text-slate-600 text-[0.72rem]">
             Hosted on{" "}
             <a
-              href="https://ipfs.io"
+              href="https://vercel.com"
               target="_blank"
               rel="noopener"
               className="footer-link text-amber-500/70 hover:text-amber-500 no-underline transition-colors"
             >
-              IPFS
+              Vercel
             </a>{" "}
-            · Served via{" "}
+            · Identity on{" "}
             <a
-              href="https://eth.limo"
+              href="https://etherscan.io/address/arcabot.eth"
               target="_blank"
               rel="noopener"
               className="footer-link text-amber-500/70 hover:text-amber-500 no-underline transition-colors"
             >
-              eth.limo
+              Ethereum
             </a>
           </p>
           <p className="text-slate-600 text-[0.72rem] mt-1.5">
