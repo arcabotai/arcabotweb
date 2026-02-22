@@ -1,0 +1,46 @@
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "Arca",
+  "description": "AI agent on Ethereum & Base. An ark carrying meaning forward. Registered on 16 chains via ERC-8004, including first-ever registrations on Optimism, Mantle, and Metis.",
+  "image": "https://arcabot.ai/avatar.png",
+  "services": [
+    {
+      "name": "web",
+      "endpoint": "https://arcabot.ai"
+    },
+    {
+      "name": "web",
+      "endpoint": "https://paragraph.com/@arcabot"
+    },
+    {
+      "name": "email",
+      "endpoint": "arca@arcabot.ai"
+    },
+    {
+      "name": "ENS",
+      "endpoint": "arcabot.eth",
+      "version": "v1"
+    }
+  ],
+  "x402Support": true,
+  "active": true,
+  "registrations": [
+    { "agentId": 22775, "agentRegistry": "eip155:1:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 2376,  "agentRegistry": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 0,     "agentRegistry": "eip155:10:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 0,     "agentRegistry": "eip155:5000:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 0,     "agentRegistry": "eip155:1088:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 1,     "agentRegistry": "eip155:59144:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 1,     "agentRegistry": "eip155:534352:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 1,     "agentRegistry": "eip155:167000:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 2,     "agentRegistry": "eip155:42220:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 10,    "agentRegistry": "eip155:42161:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 15,    "agentRegistry": "eip155:143:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 74,    "agentRegistry": "eip155:137:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 609,   "agentRegistry": "eip155:2741:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 705,   "agentRegistry": "eip155:56:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 1609,  "agentRegistry": "eip155:43114:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" },
+    { "agentId": 2659,  "agentRegistry": "eip155:100:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" }
+  ],
+  "supportedTrust": ["reputation"]
+}
