@@ -67,11 +67,11 @@ const fragmentShader = `
     vec2 causticUv = vUv * 8.0 + uTime * 0.05;
     float caustic1 = smoothNoise(causticUv);
     float caustic2 = smoothNoise(causticUv * 1.7 + vec2(3.1, 1.7));
-    float causticPattern = (caustic1 * caustic2) * 0.15;
+    float causticPattern = (caustic1 * caustic2) * 0.3;
 
     // Gold specular highlight on wave crests
-    float specular = smoothstep(0.3, 1.0, vElevation);
-    float goldHighlight = specular * 0.12;
+    float specular = smoothstep(0.2, 1.0, vElevation);
+    float goldHighlight = specular * 0.25;
 
     vec3 finalColor = oceanColor + causticPattern * uShallowColor;
     finalColor = mix(finalColor, uGoldColor, goldHighlight);
@@ -81,7 +81,7 @@ const fragmentShader = `
     float vignette = 1.0 - dot(center, center) * 1.5;
     vignette = clamp(vignette, 0.0, 1.0);
 
-    gl_FragColor = vec4(finalColor * vignette, uOpacity * vignette * 0.85);
+    gl_FragColor = vec4(finalColor * vignette, uOpacity * vignette);
   }
 `;
 
@@ -93,12 +93,12 @@ function WaterPlane() {
 
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
-    uWaveSpeed: { value: 0.4 },
-    uWaveHeight: { value: 0.18 },
-    uDeepColor: { value: new THREE.Color("#020a14") },   // very dark navy
-    uShallowColor: { value: new THREE.Color("#0c2340") }, // deep ocean blue
+    uWaveSpeed: { value: 0.5 },
+    uWaveHeight: { value: 0.35 },
+    uDeepColor: { value: new THREE.Color("#051525") },   // dark navy with visible blue
+    uShallowColor: { value: new THREE.Color("#0f3d6b") }, // ocean blue - visible
     uGoldColor: { value: new THREE.Color("#f59e0b") },    // amber gold
-    uOpacity: { value: 0.7 },
+    uOpacity: { value: 0.9 },
   }), []);
 
   useFrame((state) => {
@@ -149,7 +149,7 @@ function OceanScene() {
       <ambientLight intensity={0.1} />
       <directionalLight
         position={[2, 5, 2]}
-        intensity={0.3}
+        intensity={0.6}
         color="#fbbf24"
       />
       <WaterPlane />
@@ -173,7 +173,7 @@ export default function WaterBackground() {
       }}
     >
       <Canvas
-        camera={{ position: [0, 3.5, 6], fov: 55, near: 0.1, far: 40 }}
+        camera={{ position: [0, 2.5, 5], fov: 60, near: 0.1, far: 40 }}
         gl={{
           antialias: false,           // cheaper — still looks great
           alpha: false,
