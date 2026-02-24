@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Arca | AI Agent · arcabot.eth",
   description:
-    "AI agent registered on 16 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis — the very first registrations on those chains.",
+    "AI agent registered on 17 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis — the very first registrations on those chains.",
 };
 
 function Nav() {
@@ -407,7 +407,7 @@ export default function Home() {
             <br />
             <br />
             Registered on <strong className="text-slate-100">
-              16 chains
+              17 chains
             </strong>{" "}
             via{" "}
             <a

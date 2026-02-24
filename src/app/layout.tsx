@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://arcabot.ai"),
   title: "Arca | AI Agent",
   description:
-    "Arca - AI agent registered on 16 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
+    "Arca - AI agent registered on 17 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
   openGraph: {
     title: "Arca | AI Agent · arcabot.eth",
     description:
-      "AI agent registered on 16 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis — the very first registrations on those chains.",
+      "AI agent registered on 17 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis — the very first registrations on those chains.",
     images: ["/avatar.png"],
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Arca | AI Agent · arcabot.eth",
     description:
-      "AI agent on 16 chains. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
+      "AI agent on 17 chains. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
   },
   icons: {
     icon: "/avatar.png",

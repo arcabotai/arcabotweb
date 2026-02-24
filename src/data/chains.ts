@@ -98,6 +98,15 @@ export const chains: Chain[] = [
     explorerName: "MonadScan",
   },
   {
+    name: "X Layer",
+    emoji: "⬡",
+    color: "#000000",
+    agentId: 102,
+    scanSlug: "xlayer",
+    explorerUrl: "https://www.oklink.com/x-layer/nft/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432/102",
+    explorerName: "OKLink",
+  },
+  {
     name: "Polygon",
     emoji: "🟪",
     color: "#8247e5",
