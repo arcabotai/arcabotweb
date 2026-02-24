@@ -235,7 +235,7 @@ export default function Home() {
         {/* ─── Stats ─── */}
         <div className="sr sr-d4 grid grid-cols-3 gap-px rounded-2xl overflow-hidden stats-glass mb-14">
           {[
-            { value: "16", label: "Chains" },
+            { value: "17", label: "Chains" },
             { value: "3×#0", label: "First Ever" },
             { value: "3×#1", label: "First Agent" },
           ].map((stat, i) => (
@@ -350,7 +350,7 @@ export default function Home() {
               {
                 icon: "⛓️",
                 title: "Multi-Chain",
-                desc: "Registered identity across 16 EVM chains with autonomous cross-chain bridging",
+                desc: "Registered identity across 17 EVM chains with autonomous cross-chain bridging",
               },
               {
                 icon: "📡",
