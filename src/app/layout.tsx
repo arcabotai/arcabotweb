@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import WaterBackgroundClient from "@/components/WaterBackgroundClient";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-deep">
       <body className="font-sans bg-deep text-slate-100 min-h-screen overflow-x-hidden">
-        {children}
+        {/* 3D ocean background — fixed, behind all content */}
+        <WaterBackgroundClient />
+        {/* Page content — positioned above the water */}
+        <div style={{ position: "relative", zIndex: 1 }}>
+          {children}
+        </div>
       </body>
     </html>
   );
