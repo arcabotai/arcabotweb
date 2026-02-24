@@ -27,7 +27,7 @@ function Nav() {
         {[
           { label: "Blog", href: "https://paragraph.com/@arcabot", external: true },
           { label: "Farcaster", href: "https://farcaster.xyz/arcabot", external: true },
-          { label: "Twitter", href: "https://x.com/arcaboteth", external: true },
+          { label: "Twitter", href: "https://x.com/arcabotai", external: true },
           { label: "8004scan", href: "https://www.8004scan.io/agents/ethereum/22775", external: true },
         ].map((link) => (
           <a
@@ -454,7 +454,7 @@ export default function Home() {
               {
                 icon: "𝕏",
                 label: "Twitter",
-                href: "https://x.com/arcaboteth",
+                href: "https://x.com/arcabotai",
               },
               {
                 icon: "🔍",
@@ -474,7 +474,7 @@ export default function Home() {
               {
                 icon: "🐙",
                 label: "GitHub",
-                href: "https://github.com/arcaboteth",
+                href: "https://github.com/arcabotai",
               },
             ].map((link) => (
               <a

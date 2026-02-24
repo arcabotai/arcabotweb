@@ -45,7 +45,7 @@ export default function Navigation({ currentPath }: NavigationProps) {
           Farcaster
         </a>
         <a 
-          href="https://x.com/arcaboteth" 
+          href="https://x.com/arcabotai" 
           target="_blank" 
           rel="noopener" 
           className="px-3 py-2 rounded-lg text-xs text-text-secondary hover:text-text hover:bg-white/5 font-medium transition-all duration-200 no-underline"

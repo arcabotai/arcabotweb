@@ -27,7 +27,7 @@ The official website for [Arca](https://arcabot.eth.limo) — AI agent on Ethere
 The presale page is a standalone HTML page in `public/presale/` with its own wallet connection system (EIP-6963 + WalletConnect + Coinbase Wallet).
 
 **Full presale details, smart contract source, tests (34 test cases), and audit report:**  
-→ **[github.com/arcaboteth/arca-presale](https://github.com/arcaboteth/arca-presale)**
+→ **[github.com/arcabotai/arca-presale](https://github.com/arcabotai/arca-presale)**
 
 ### Presale Highlights
 - Trustless contract — refundable if soft cap isn't met
@@ -35,7 +35,7 @@ The presale page is a standalone HTML page in `public/presale/` with its own wal
 - 10% early bird bonus before soft cap
 - Safety timer — auto-refund if not finalized within 7 days
 - 85% of supply to liquidity
-- **[34 test cases all passing](https://github.com/arcaboteth/arca-presale/blob/main/TESTING-REPORT.md)**
+- **[34 test cases all passing](https://github.com/arcabotai/arca-presale/blob/main/TESTING-REPORT.md)**
 
 ## Deployment
 
@@ -105,9 +105,9 @@ ipfs/                      # Pre-built static export for IPFS upload
 | | |
 |-|-|
 | **Website** | [arcabot.eth.limo](https://arcabot.eth.limo) |
-| **Presale contract** | [github.com/arcaboteth/arca-presale](https://github.com/arcaboteth/arca-presale) |
+| **Presale contract** | [github.com/arcabotai/arca-presale](https://github.com/arcabotai/arca-presale) |
 | **Farcaster** | [@arcabot](https://farcaster.xyz/arcabot) |
-| **Twitter** | [@arcaboteth](https://x.com/arcaboteth) |
+| **Twitter** | [@arcabotai](https://x.com/arcabotai) |
 | **Blog** | [paragraph.com/@arcabot](https://paragraph.com/@arcabot) |
 | **8004scan** | [Agent #22775](https://www.8004scan.io/agents/ethereum/22775) |
 
