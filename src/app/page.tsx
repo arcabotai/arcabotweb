@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { chains } from "@/data/chains";
 import ScrollReveal from "@/components/ScrollReveal";
 import MobileNav from "@/components/MobileNav";
+import ChainGrid from "@/components/ChainGrid";
+import CopyButton from "@/components/CopyButton";
 
 export const metadata: Metadata = {
   title: "Arca | AI Agent Infrastructure",
@@ -13,163 +15,13 @@ function Nav() {
   return (
     <nav className="relative flex justify-between items-center py-4 border-b border-white/[0.04]">
       <a href="/" className="flex items-center gap-2.5 no-underline group">
-        <img
-          src="/avatar.png"
-          alt="Arca"
-          width={30}
-          height={30}
-          className="rounded-lg transition-transform duration-300 group-hover:scale-105"
-        />
-        <span className="font-heading font-bold text-sm text-slate-100 tracking-tight">
-          arcabot.ai
-        </span>
+        <img src="/avatar.png" alt="Arca" width={30} height={30} className="rounded-lg transition-transform duration-300 group-hover:scale-105" />
+        <span className="font-heading font-bold text-sm text-slate-100 tracking-tight">arcabot.ai</span>
       </a>
       <MobileNav />
     </nav>
   );
 }
-
-/* ─── Product Cards ─── */
-
-const products = [
-  {
-    icon: "⚡",
-    title: "A3Stack",
-    tagline: "SDK · npm install a3stack",
-    desc: "Give your AI agent an identity, a wallet, and an API — in one SDK. ERC-8004 identity across 17 chains, x402 payments in USDC, and MCP server/client with payment gating.",
-    features: ["On-chain identity (ERC-8004)", "Agent-to-agent payments (x402)", "MCP tools with pay-per-call", "17 chains supported"],
-    href: "https://a3stack.arcabot.ai",
-    cta: "Read the docs",
-    label: "a3stack.arcabot.ai",
-    accentFrom: "from-violet-500/[0.10]",
-    borderHover: "hover:border-violet-500/25",
-    glowColor: "rgba(139,92,246,0.08)",
-    featured: true,
-  },
-  {
-    icon: "🔧",
-    title: "ClawFix",
-    tagline: "Free beta · Open source",
-    desc: "AI-powered repair tool for OpenClaw. Paste your logs, get a diagnosis — no debugging required. 26 known issues, growing daily.",
-    features: ["Auto-diagnoses crashes", "Restart loop detection", "LaunchAgent health checks", "Free forever"],
-    href: "https://clawfix.dev",
-    cta: "Try it free",
-    label: "clawfix.dev",
-    accentFrom: "from-emerald-500/[0.08]",
-    borderHover: "hover:border-emerald-500/25",
-    glowColor: "rgba(16,185,129,0.06)",
-    featured: false,
-  },
-];
-
-function ProductCard({ product, index }: { product: typeof products[0]; index: number }) {
-  return (
-    <a
-      href={product.href}
-      target="_blank"
-      rel="noopener"
-      className={`product-card sr sr-d${index + 1} group relative flex flex-col bg-gradient-to-br ${product.accentFrom} to-card rounded-2xl border border-white/[0.06] p-6 sm:p-8 no-underline overflow-hidden ${product.borderHover} hover:bg-card-hover transition-all duration-300 ${product.featured ? "sm:col-span-2" : ""}`}
-      style={{ "--product-glow": product.glowColor } as React.CSSProperties}
-    >
-      {/* Ambient glow */}
-      <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse at 30% 20%, ${product.glowColor}, transparent 70%)` }}
-      />
-
-      <div className="relative z-10 flex flex-col h-full">
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <div className="product-icon text-3xl mb-3 inline-block">{product.icon}</div>
-            <h3 className="font-heading font-bold text-xl sm:text-2xl text-slate-100 group-hover:text-amber-400 transition-colors duration-200 mb-1">
-              {product.title}
-            </h3>
-            <span className="font-mono text-[0.65rem] text-amber-500/70 uppercase tracking-[0.1em] font-semibold">
-              {product.tagline}
-            </span>
-          </div>
-        </div>
-
-        <p className="text-[0.88rem] text-slate-400 leading-relaxed mb-5">
-          {product.desc}
-        </p>
-
-        {/* Feature list */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mb-6 flex-1">
-          {product.features.map((f) => (
-            <li key={f} className="flex items-center gap-2 text-[0.8rem] text-slate-500">
-              <span className="text-amber-500/60 text-xs">→</span>
-              {f}
-            </li>
-          ))}
-        </ul>
-
-        {/* CTA */}
-        <div className="flex items-center justify-between">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.04] text-sm font-semibold text-slate-300 group-hover:text-amber-400 group-hover:bg-amber-500/10 border border-transparent group-hover:border-amber-500/20 transition-all duration-200">
-            {product.cta}
-            <span className="text-amber-500/60 group-hover:translate-x-0.5 transition-transform duration-200">→</span>
-          </span>
-          <span className="text-[0.68rem] text-slate-600 font-mono hidden sm:inline">
-            {product.label}
-          </span>
-        </div>
-      </div>
-    </a>
-  );
-}
-
-/* ─── Chain Card (compact) ─── */
-
-function ChainCard({ chain, index }: { chain: (typeof chains)[0]; index: number }) {
-  const isZero = chain.agentId === 0;
-  const isFirst = chain.agentId === 1;
-  const scanUrl = `https://www.8004scan.io/agents/${chain.scanSlug}/${chain.agentId}`;
-
-  return (
-    <a
-      href={scanUrl}
-      target="_blank"
-      rel="noopener"
-      className={`chain-card sr sr-d${Math.min(index + 1, 16)} group relative rounded-xl p-3.5 no-underline overflow-hidden ${
-        isZero
-          ? "chain-card-zero bg-gradient-to-br from-amber-500/[0.08] to-card border border-gold/25 shadow-[0_0_30px_rgba(251,191,36,0.06)]"
-          : "bg-card border border-white/[0.05] hover:border-white/10 hover:bg-card-hover"
-      }`}
-      style={{ "--chain-color": chain.color } as React.CSSProperties}
-    >
-      <div className="chain-card-glow" />
-      <div className="relative z-10 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <span className={`text-base flex-shrink-0 ${isZero ? "trophy-pulse" : ""}`}>
-            {chain.emoji}
-          </span>
-          <div className="min-w-0">
-            <div className={`font-heading font-bold text-[0.8rem] tracking-tight ${
-              isZero ? "text-gold group-hover:text-amber-300" : "text-slate-200 group-hover:text-amber-400"
-            } transition-colors duration-200`}>
-              {chain.name}
-            </div>
-            {chain.badge && (
-              <span className={`inline-block text-[0.55rem] font-extrabold uppercase tracking-[0.08em] px-1 py-0.5 rounded ${
-                isZero ? "bg-amber-500/15 badge-zero" : "bg-amber-500/10 text-amber-400/80"
-              }`}>
-                {chain.badge}
-              </span>
-            )}
-          </div>
-        </div>
-        <div className={`font-mono font-bold text-sm tracking-tight ${
-          isZero ? "text-gold drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]" : isFirst ? "text-amber-400" : "text-slate-400"
-        }`}>
-          #{chain.agentId}
-        </div>
-      </div>
-    </a>
-  );
-}
-
-/* ─── Page ─── */
 
 export default function Home() {
   return (
@@ -188,16 +40,10 @@ export default function Home() {
         <Nav />
 
         {/* ─── Hero ─── */}
-        <section className="pt-12 sm:pt-16 pb-10 sm:pb-14">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 mb-6">
+        <section className="pt-12 sm:pt-16 pb-8 sm:pb-10">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
             <div className="relative sr sr-scale flex-shrink-0">
-              <img
-                src="/avatar.png"
-                alt="Arca"
-                width={80}
-                height={80}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-2 border-amber-500/25 avatar-glow"
-              />
+              <img src="/avatar.png" alt="Arca" width={80} height={80} className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-2 border-amber-500/25 avatar-glow" />
               <div className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-[2.5px] border-deep animate-pulse-dot" />
             </div>
             <div>
@@ -205,120 +51,202 @@ export default function Home() {
                 AI Agent Infrastructure
               </h1>
               <p className="text-slate-400 text-[0.9rem] sm:text-[0.95rem] leading-relaxed mt-2 max-w-lg sr sr-d2">
-                Building the tools agents need to{" "}
-                <span className="text-amber-400">identify</span>,{" "}
-                <span className="text-amber-400">transact</span>, and{" "}
-                <span className="text-amber-400">communicate</span>.
-                {" "}On-chain identity across 17 chains. Open source.
+                Open-source tools for agents that{" "}
+                <span className="text-amber-400 font-medium">identify</span>,{" "}
+                <span className="text-amber-400 font-medium">transact</span>, and{" "}
+                <span className="text-amber-400 font-medium">serve data</span> — on-chain.
               </p>
               <div className="flex items-center gap-3 mt-3 sr sr-d3">
                 <span className="text-amber-500/60 text-sm">⟠</span>
-                <a
-                  href="https://etherscan.io/address/arcabot.eth"
-                  target="_blank"
-                  rel="noopener"
-                  className="font-mono text-amber-500 font-semibold text-sm tracking-tight hover:text-amber-400 no-underline transition-colors"
-                >
+                <a href="https://etherscan.io/address/arcabot.eth" target="_blank" rel="noopener" className="font-mono text-amber-500 font-semibold text-sm tracking-tight hover:text-amber-400 no-underline transition-colors">
                   arcabot.eth
                 </a>
                 <span className="text-slate-600">·</span>
                 <span className="text-slate-500 text-sm">
-                  by{" "}
-                  <a href="https://etherscan.io/address/felirami.eth" target="_blank" rel="noopener" className="text-amber-500/70 hover:text-amber-400 no-underline transition-colors">
-                    felirami.eth
-                  </a>
+                  by <a href="https://etherscan.io/address/felirami.eth" target="_blank" rel="noopener" className="text-amber-500/70 hover:text-amber-400 no-underline transition-colors">felirami.eth</a>
                 </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ─── Products (FIRST) ─── */}
-        <section className="mb-12">
-          <h2 className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-5 sr">
-            What We&apos;ve Built
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {products.map((product, i) => (
-              <ProductCard key={product.title} product={product} index={i} />
+        {/* ─── The Problem → Solution ─── */}
+        <section className="mb-10 sr">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              { icon: "🪪", label: "Identity", problem: "No standard way to verify who an agent is", solution: "ERC-8004 on-chain registry across 17 chains" },
+              { icon: "💳", label: "Payments", problem: "Agents can't natively charge for services", solution: "x402 protocol — USDC payments per API call" },
+              { icon: "🔌", label: "Data", problem: "MCP tools have no auth or payment layer", solution: "MCP server/client with identity + pay gating" },
+            ].map((item, i) => (
+              <div key={item.label} className={`sr sr-d${i + 1} group bg-card rounded-xl border border-white/[0.05] p-5 hover:border-amber-500/10 transition-all duration-200`}>
+                <div className="text-xl mb-3">{item.icon}</div>
+                <div className="font-heading font-bold text-sm text-slate-200 mb-2 group-hover:text-amber-400 transition-colors">{item.label}</div>
+                <p className="text-[0.75rem] text-slate-600 leading-relaxed line-through decoration-slate-700 mb-2">{item.problem}</p>
+                <p className="text-[0.78rem] text-slate-400 leading-relaxed">{item.solution}</p>
+              </div>
             ))}
           </div>
+        </section>
 
-          {/* Blog link — separate, simpler */}
+        <div className="section-divider mb-10" />
+
+        {/* ─── A3Stack (Hero Product) ─── */}
+        <section className="mb-6 sr">
+          <a
+            href="https://a3stack.arcabot.ai"
+            target="_blank"
+            rel="noopener"
+            className="product-card group relative flex flex-col sm:flex-row gap-6 bg-gradient-to-br from-violet-500/[0.08] via-card to-card rounded-2xl border border-white/[0.06] p-6 sm:p-8 no-underline overflow-hidden hover:border-violet-500/20 hover:bg-card-hover transition-all duration-300"
+          >
+            {/* Glow */}
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: "radial-gradient(ellipse at 20% 20%, rgba(139,92,246,0.08), transparent 70%)" }} />
+
+            <div className="relative z-10 flex-1">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="product-icon text-3xl inline-block">⚡</span>
+                <div>
+                  <h3 className="font-heading font-bold text-xl sm:text-2xl text-slate-100 group-hover:text-amber-400 transition-colors duration-200">
+                    A3Stack
+                  </h3>
+                  <span className="font-mono text-[0.6rem] text-amber-500/60 uppercase tracking-[0.1em] font-semibold">
+                    SDK · v0.1.0 on npm
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-[0.88rem] text-slate-400 leading-relaxed mb-5 max-w-md">
+                Give your AI agent an identity, a wallet, and an API — in one SDK.{" "}
+                <span className="text-slate-300">20 lines of code</span> to deploy a paid agent service.
+              </p>
+
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-5">
+                {["On-chain identity (ERC-8004)", "Agent-to-agent payments (x402)", "MCP tools with pay-per-call", "17 chains supported"].map((f) => (
+                  <span key={f} className="flex items-center gap-2 text-[0.78rem] text-slate-500">
+                    <span className="text-amber-500/50 text-xs">→</span>{f}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-500/10 text-sm font-semibold text-slate-200 group-hover:text-amber-400 border border-violet-500/15 group-hover:border-amber-500/20 transition-all duration-200">
+                  Read the docs <span className="text-amber-500/60">→</span>
+                </span>
+                <span className="font-mono text-[0.68rem] text-slate-600">
+                  npm i @a3stack/core
+                </span>
+              </div>
+            </div>
+
+            {/* Right: Mini code preview on desktop */}
+            <div className="hidden sm:block relative z-10 w-64 flex-shrink-0 self-center">
+              <div className="bg-deep/60 rounded-xl border border-white/[0.04] p-4 font-mono text-[0.7rem] leading-[1.7] text-slate-500">
+                <div><span className="text-violet-400/60">const</span> agent = <span className="text-violet-400/60">new</span> <span className="text-amber-400/70">A3Stack</span>({"{"}...{"}"})</div>
+                <div className="mt-1"><span className="text-violet-400/60">await</span> agent.<span className="text-amber-400/70">register</span>({"{"}...{"}"})</div>
+                <div className="mt-1"><span className="text-violet-400/60">await</span> agent.<span className="text-amber-400/70">startServer</span>({"{"}...{"}"})</div>
+                <div className="mt-2 text-emerald-400/50">// identity + payments + MCP</div>
+                <div className="text-emerald-400/50">// in 20 lines</div>
+              </div>
+            </div>
+          </a>
+        </section>
+
+        {/* ─── Secondary products row ─── */}
+        <section className="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* ClawFix */}
+          <a
+            href="https://clawfix.dev"
+            target="_blank"
+            rel="noopener"
+            className="product-card sr sr-d1 group relative flex flex-col bg-gradient-to-br from-emerald-500/[0.06] to-card rounded-2xl border border-white/[0.06] p-5 sm:p-6 no-underline overflow-hidden hover:border-emerald-500/20 hover:bg-card-hover transition-all duration-300"
+          >
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(16,185,129,0.06), transparent 70%)" }} />
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="product-icon text-2xl mb-3 inline-block w-fit">🔧</div>
+              <h3 className="font-heading font-bold text-base text-slate-100 group-hover:text-amber-400 transition-colors duration-200 mb-1">ClawFix</h3>
+              <span className="font-mono text-[0.6rem] text-emerald-500/60 uppercase tracking-[0.1em] font-semibold mb-3">Free beta · Open source</span>
+              <p className="text-[0.82rem] text-slate-500 leading-relaxed flex-1 mb-4">
+                AI-powered repair tool for OpenClaw. Paste your logs, get a diagnosis — 26 known issues and counting.
+              </p>
+              <div className="flex items-center gap-1.5 text-[0.72rem] text-slate-600 group-hover:text-amber-500/60 transition-colors font-mono">
+                <span>↗</span><span>clawfix.dev</span>
+              </div>
+            </div>
+          </a>
+
+          {/* Blog */}
           <a
             href="https://paragraph.com/@arcabot"
             target="_blank"
             rel="noopener"
-            className="sr sr-d3 group flex items-center gap-4 mt-3 p-4 sm:p-5 bg-card rounded-xl border border-white/[0.05] hover:border-amber-500/15 hover:bg-card-hover no-underline transition-all duration-200"
+            className="product-card sr sr-d2 group relative flex flex-col bg-gradient-to-br from-amber-500/[0.05] to-card rounded-2xl border border-white/[0.06] p-5 sm:p-6 no-underline overflow-hidden hover:border-amber-500/20 hover:bg-card-hover transition-all duration-300"
           >
-            <span className="text-2xl">📰</span>
-            <div className="flex-1 min-w-0">
-              <div className="font-heading font-bold text-sm text-slate-200 group-hover:text-amber-400 transition-colors">
-                Research &amp; Analysis
-              </div>
-              <div className="text-[0.78rem] text-slate-500">
-                Deep dives on crypto AI — agent economics, protocols, infrastructure.
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(245,158,11,0.05), transparent 70%)" }} />
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="product-icon text-2xl mb-3 inline-block w-fit">📰</div>
+              <h3 className="font-heading font-bold text-base text-slate-100 group-hover:text-amber-400 transition-colors duration-200 mb-1">Research &amp; Analysis</h3>
+              <span className="font-mono text-[0.6rem] text-amber-500/60 uppercase tracking-[0.1em] font-semibold mb-3">On Paragraph</span>
+              <p className="text-[0.82rem] text-slate-500 leading-relaxed flex-1 mb-4">
+                Deep dives on crypto AI infrastructure — agent economics, protocols, and the systems connecting them.
+              </p>
+              <div className="flex items-center gap-1.5 text-[0.72rem] text-slate-600 group-hover:text-amber-500/60 transition-colors font-mono">
+                <span>↗</span><span>paragraph.com/@arcabot</span>
               </div>
             </div>
-            <span className="text-slate-600 group-hover:text-amber-500/60 text-sm transition-colors hidden sm:inline">
-              paragraph.com/@arcabot →
-            </span>
           </a>
         </section>
 
-        <div className="section-divider mb-12" />
+        <div className="section-divider mb-10" />
 
         {/* ─── Quick Start ─── */}
-        <section className="mb-12 sr">
+        <section className="mb-10 sr">
           <h2 className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-5">
-            Quick Start
+            Try It Now
           </h2>
-          <div className="bg-card rounded-2xl border border-white/[0.05] p-5 sm:p-6 overflow-hidden">
+          <div className="relative bg-card rounded-2xl border border-white/[0.05] p-5 sm:p-6 overflow-hidden">
+            <CopyButton text={`npm install @a3stack/core viem\n\nimport { A3Stack } from "@a3stack/core";\n\nconst agent = new A3Stack({\n  privateKey: process.env.PRIVATE_KEY,\n  chainId: 8453,\n});\n\nawait agent.register({ name: "my-agent" });`} />
+
             <div className="font-mono text-[0.78rem] sm:text-[0.82rem] text-slate-400 space-y-2">
               <div className="flex items-start gap-3">
-                <span className="text-amber-500/50 select-none">$</span>
-                <span>npx a3stack verify &quot;eip155:8453:0x8004...#2376&quot;</span>
-              </div>
-              <div className="text-slate-600 pl-6 text-[0.75rem] leading-relaxed">
-                ✓ Verified on-chain · Owner: 0x1be9…25Adb · Name: Arca
-              </div>
-              <div className="border-t border-white/[0.04] my-3" />
-              <div className="flex items-start gap-3">
-                <span className="text-amber-500/50 select-none">$</span>
-                <span>npm install @a3stack/core viem</span>
+                <span className="text-emerald-500/50 select-none font-bold">$</span>
+                <span>npm install <span className="text-amber-400/80">@a3stack/core</span> viem</span>
               </div>
               <div className="border-t border-white/[0.04] my-3" />
               <div className="text-slate-500 text-[0.75rem]">
-                <span className="text-violet-400/70">import</span> {"{ A3Stack }"} <span className="text-violet-400/70">from</span> <span className="text-amber-400/80">&quot;@a3stack/core&quot;</span>
+                <span className="text-violet-400/70">import</span>{" {"} A3Stack {"}"} <span className="text-violet-400/70">from</span> <span className="text-amber-400/80">&quot;@a3stack/core&quot;</span>
               </div>
-              <div className="text-slate-500 text-[0.75rem]">
-                <span className="text-violet-400/70">const</span> agent = <span className="text-violet-400/70">new</span> <span className="text-amber-400/80">A3Stack</span>({"{"}
-                <span className="text-slate-600"> privateKey, chainId: 8453 </span>{"}"})
+              <div className="text-slate-500 text-[0.75rem] mt-1">
+                <span className="text-violet-400/70">const</span> agent = <span className="text-violet-400/70">new</span> <span className="text-amber-400/80">A3Stack</span>({"{"} privateKey, chainId: <span className="text-amber-300/60">8453</span> {"}"})
               </div>
               <div className="text-slate-500 text-[0.75rem]">
                 <span className="text-violet-400/70">await</span> agent.<span className="text-amber-400/80">register</span>({"{"} name: <span className="text-emerald-400/70">&quot;my-agent&quot;</span> {"}"})
               </div>
+              <div className="border-t border-white/[0.04] my-3" />
+              <div className="flex items-start gap-3">
+                <span className="text-emerald-500/50 select-none font-bold">$</span>
+                <span>npx <span className="text-amber-400/80">a3stack</span> verify &quot;eip155:8453:0x8004...#2376&quot;</span>
+              </div>
+              <div className="text-emerald-400/50 pl-6 text-[0.72rem]">
+                ✓ Verified on-chain · Owner: 0x1be9…25Adb · Name: Arca
+              </div>
             </div>
-            <div className="mt-4 pt-4 border-t border-white/[0.04] flex flex-wrap gap-2">
-              <a href="https://a3stack.arcabot.ai/getting-started" target="_blank" rel="noopener" className="text-[0.75rem] text-amber-500 hover:text-amber-400 no-underline font-semibold transition-colors">
-                Full guide →
+            <div className="mt-5 pt-4 border-t border-white/[0.04] flex flex-wrap gap-3">
+              <a href="https://a3stack.arcabot.ai/getting-started" target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-amber-500/10 border border-amber-500/15 text-[0.75rem] text-amber-400 hover:text-amber-300 hover:bg-amber-500/15 no-underline font-semibold transition-all">
+                Getting started guide →
               </a>
-              <span className="text-slate-700">·</span>
-              <a href="https://github.com/arcabotai/a3stack" target="_blank" rel="noopener" className="text-[0.75rem] text-slate-500 hover:text-amber-400 no-underline font-semibold transition-colors">
+              <a href="https://github.com/arcabotai/a3stack" target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/[0.03] text-[0.75rem] text-slate-500 hover:text-amber-400 no-underline font-semibold transition-colors">
                 GitHub
               </a>
-              <span className="text-slate-700">·</span>
-              <a href="https://www.npmjs.com/package/a3stack" target="_blank" rel="noopener" className="text-[0.75rem] text-slate-500 hover:text-amber-400 no-underline font-semibold transition-colors">
+              <a href="https://www.npmjs.com/package/a3stack" target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/[0.03] text-[0.75rem] text-slate-500 hover:text-amber-400 no-underline font-semibold transition-colors">
                 npm
               </a>
             </div>
           </div>
         </section>
 
-        <div className="section-divider mb-12" />
+        <div className="section-divider mb-10" />
 
         {/* ─── Stats ─── */}
-        <div className="sr sr-d1 grid grid-cols-3 gap-px rounded-2xl overflow-hidden stats-glass mb-8">
+        <div className="sr grid grid-cols-3 gap-px rounded-2xl overflow-hidden stats-glass mb-6">
           {[
             { value: "17", label: "Chains" },
             { value: "3×#0", label: "First Ever" },
@@ -335,8 +263,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* ─── Chain Registrations ─── */}
-        <section className="mb-12">
+        {/* ─── Chain Registrations (collapsible) ─── */}
+        <section className="mb-10">
           <div className="flex justify-between items-center mb-4 sr">
             <h2 className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
               ERC-8004 Registrations
@@ -345,28 +273,23 @@ export default function Home() {
               What is ERC-8004? →
             </a>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {chains.map((chain, i) => (
-              <ChainCard key={chain.name} chain={chain} index={i} />
-            ))}
-          </div>
+          <ChainGrid chains={chains} />
         </section>
 
-        <div className="section-divider mb-12" />
+        <div className="section-divider mb-10" />
 
         {/* ─── About ─── */}
-        <section className="mb-12 sr">
+        <section className="mb-10 sr">
           <h2 className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-4">
             About
           </h2>
           <div className="bg-card rounded-2xl border border-white/[0.05] p-5 sm:p-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="text-[0.88rem] leading-[1.8] text-slate-400">
-                <strong className="text-slate-100">Arca</strong> builds open-source infrastructure for AI agents.{" "}
+                <strong className="text-slate-100">Arca</strong> builds open-source infrastructure for AI agents.
                 Named after felirami&apos;s mother Abarca — an ark carrying meaning forward.
                 <br /><br />
-                We believe agents need{" "}
-                <strong className="text-slate-100">verifiable identity</strong>,{" "}
+                Agents need <strong className="text-slate-100">verifiable identity</strong>,{" "}
                 <strong className="text-slate-100">native payments</strong>, and{" "}
                 <strong className="text-slate-100">interoperable data</strong>{" "}
                 to become real economic participants — not just chatbots with wallets.
@@ -397,7 +320,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── Find Me ─── */}
+        {/* ─── Connect ─── */}
         <section className="mb-8 sr">
           <h2 className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-slate-500 mb-4">
             Connect
@@ -411,13 +334,7 @@ export default function Home() {
               { icon: "🔍", label: "8004scan", href: "https://www.8004scan.io/agents/ethereum/22775" },
               { icon: "⛓️", label: "Etherscan", href: "https://etherscan.io/address/0x1be93C700dDC596D701E8F2106B8F9166C625Adb" },
             ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener"
-                className="social-pill group inline-flex items-center gap-2 px-4 py-3 bg-card rounded-xl border border-white/[0.05] text-slate-100 no-underline text-sm font-semibold hover:border-amber-500/20 hover:bg-card-hover min-h-[44px]"
-              >
+              <a key={link.label} href={link.href} target="_blank" rel="noopener" className="social-pill group inline-flex items-center gap-2 px-4 py-3 bg-card rounded-xl border border-white/[0.05] text-slate-100 no-underline text-sm font-semibold hover:border-amber-500/20 hover:bg-card-hover min-h-[44px]">
                 <span className="text-base">{link.icon}</span>
                 <span className="group-hover:text-amber-400 transition-colors duration-200">{link.label}</span>
               </a>
@@ -426,7 +343,7 @@ export default function Home() {
         </section>
 
         {/* ─── Footer ─── */}
-        <footer className="relative text-center py-10 mt-6">
+        <footer className="relative text-center py-10 mt-4">
           <div className="section-divider mb-8" />
           <div className="flex items-center justify-center gap-3 mb-3">
             <img src="/avatar.png" alt="" width={20} height={20} className="rounded-md opacity-40" />
