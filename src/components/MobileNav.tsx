@@ -3,16 +3,17 @@
 import { useState, useEffect } from 'react';
 
 const navLinks = [
+  { label: "A3Stack", href: "https://a3stack.arcabot.ai", external: true },
+  { label: "ClawFix", href: "https://clawfix.dev", external: true },
   { label: "Blog", href: "https://paragraph.com/@arcabot", external: true },
-  { label: "Farcaster", href: "https://farcaster.xyz/arcabot", external: true },
+  { label: "GitHub", href: "https://github.com/arcabotai", external: true },
   { label: "Twitter", href: "https://x.com/arcabotai", external: true },
-  { label: "8004scan", href: "https://www.8004scan.io/agents/ethereum/22775", external: true },
+  { label: "Farcaster", href: "https://farcaster.xyz/arcabot", external: true },
 ];
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
 
-  // Close on escape key
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false);
@@ -21,7 +22,6 @@ export default function MobileNav() {
     return () => document.removeEventListener('keydown', handleKey);
   }, []);
 
-  // Close on outside click
   useEffect(() => {
     if (!open) return;
     const handleClick = (e: MouseEvent) => {
@@ -36,7 +36,7 @@ export default function MobileNav() {
     <>
       {/* Desktop nav */}
       <div className="hidden sm:flex gap-1">
-        {navLinks.map((link) => (
+        {navLinks.slice(0, 4).map((link) => (
           <a
             key={link.label}
             href={link.href}
@@ -57,40 +57,27 @@ export default function MobileNav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
-          <span
-            className={`block w-5 h-[2px] bg-slate-400 rounded-full transition-all duration-300 origin-center ${
-              open ? 'rotate-45 translate-y-[7px]' : ''
-            }`}
-          />
-          <span
-            className={`block w-5 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ${
-              open ? 'opacity-0 scale-x-0' : ''
-            }`}
-          />
-          <span
-            className={`block w-5 h-[2px] bg-slate-400 rounded-full transition-all duration-300 origin-center ${
-              open ? '-rotate-45 -translate-y-[7px]' : ''
-            }`}
-          />
+          <span className={`block w-5 h-[2px] bg-slate-400 rounded-full transition-all duration-300 origin-center ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
+          <span className={`block w-5 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ${open ? 'opacity-0 scale-x-0' : ''}`} />
+          <span className={`block w-5 h-[2px] bg-slate-400 rounded-full transition-all duration-300 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
         </button>
 
-        {/* Dropdown */}
         <div
-          className={`absolute top-full right-0 mt-2 w-48 bg-card border border-white/[0.08] rounded-2xl p-2 flex flex-col gap-0.5 z-50 shadow-xl shadow-black/40 transition-all duration-200 ${
-            open
-              ? 'opacity-100 translate-y-0 pointer-events-auto'
-              : 'opacity-0 -translate-y-2 pointer-events-none'
+          className={`absolute top-full right-0 mt-2 w-52 bg-card border border-white/[0.08] rounded-2xl p-2 flex flex-col gap-0.5 z-50 shadow-xl shadow-black/40 transition-all duration-200 ${
+            open ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
           }`}
           aria-hidden={!open}
         >
-          {navLinks.map((link) => (
+          {navLinks.map((link, i) => (
             <a
               key={link.label}
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener" : undefined}
               onClick={() => setOpen(false)}
-              className="px-4 py-3 rounded-xl text-sm text-slate-400 hover:text-slate-100 hover:bg-white/[0.06] transition-all duration-200 font-medium min-h-[44px] flex items-center"
+              className={`px-4 py-3 rounded-xl text-sm text-slate-400 hover:text-slate-100 hover:bg-white/[0.06] transition-all duration-200 font-medium min-h-[44px] flex items-center ${
+                i === 0 ? "text-amber-500/80 font-semibold" : ""
+              }`}
             >
               {link.label}
             </a>

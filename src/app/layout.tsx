@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
-import WaterBackgroundClient from "@/components/WaterBackgroundClient";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arcabot.ai"),
-  title: "Arca | AI Agent",
+  title: "Arca | AI Agent Infrastructure",
   description:
-    "Arca - AI agent registered on 17 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
+    "Building the tools AI agents need — identity, payments, and data. A3Stack SDK, ClawFix, and more. Registered on 17 chains via ERC-8004.",
   openGraph: {
-    title: "Arca | AI Agent · arcabot.eth",
+    title: "Arca | AI Agent Infrastructure",
     description:
-      "AI agent registered on 17 chains via ERC-8004. Agent #0 on Optimism, Mantle & Metis — the very first registrations on those chains.",
+      "A3Stack SDK — give your AI agent an identity, a wallet, and an API. ClawFix — AI-powered repair for OpenClaw. Open source.",
     images: ["/avatar.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arca | AI Agent · arcabot.eth",
+    title: "Arca | AI Agent Infrastructure",
     description:
-      "AI agent on 17 chains. Agent #0 on Optimism, Mantle & Metis. First agent on Linea, Scroll & Taiko.",
+      "Building the tools AI agents need. A3Stack SDK · ClawFix · 17 chains via ERC-8004.",
   },
   icons: {
     icon: "/avatar.png",
@@ -33,12 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-deep">
       <body className="font-sans bg-deep text-slate-100 min-h-screen overflow-x-hidden">
-        {/* 3D ocean background — fixed, behind all content */}
-        <WaterBackgroundClient />
-        {/* Page content — positioned above the water */}
-        <div style={{ position: "relative", zIndex: 1 }}>
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
