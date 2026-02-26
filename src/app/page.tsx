@@ -109,18 +109,18 @@ export default function Home() {
                     A3Stack
                   </h3>
                   <span className="font-mono text-[0.6rem] text-amber-500/60 uppercase tracking-[0.1em] font-semibold">
-                    SDK · v0.1.0 on npm
+                    SDK · 6 packages on npm
                   </span>
                 </div>
               </div>
 
               <p className="text-[0.88rem] text-slate-400 leading-relaxed mb-5 max-w-md">
                 Give your AI agent an identity, a wallet, and an API — in one SDK.{" "}
-                <span className="text-slate-300">20 lines of code</span> to deploy a paid agent service.
+                <span className="text-slate-300">Zero gas, zero friction</span> — register on-chain for free.
               </p>
 
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-5">
-                {["On-chain identity (ERC-8004)", "Agent-to-agent payments (x402)", "MCP tools with pay-per-call", "17 chains supported"].map((f) => (
+                {["Gasless registration (CDP Paymaster)", "On-chain identity (ERC-8004)", "Agent-to-agent payments (x402)", "Smart accounts (ERC-4337)"].map((f) => (
                   <span key={f} className="flex items-center gap-2 text-[0.78rem] text-slate-500">
                     <span className="text-amber-500/50 text-xs">→</span>{f}
                   </span>
@@ -132,7 +132,7 @@ export default function Home() {
                   Read the docs <span className="text-amber-500/60">→</span>
                 </span>
                 <span className="font-mono text-[0.68rem] text-slate-600">
-                  npm i @a3stack/core
+                  npm i @a3stack/accounts
                 </span>
               </div>
             </div>
@@ -140,11 +140,11 @@ export default function Home() {
             {/* Right: Mini code preview on desktop */}
             <div className="hidden sm:block relative z-10 w-64 flex-shrink-0 self-center">
               <div className="bg-deep/60 rounded-xl border border-white/[0.04] p-4 font-mono text-[0.7rem] leading-[1.7] text-slate-500">
-                <div><span className="text-violet-400/60">const</span> agent = <span className="text-violet-400/60">new</span> <span className="text-amber-400/70">A3Stack</span>({"{"}...{"}"})</div>
+                <div><span className="text-violet-400/60">const</span> agent = <span className="text-violet-400/60">await</span></div>
+                <div className="pl-2"><span className="text-amber-400/70">createAgentAccount</span>(creds)</div>
                 <div className="mt-1"><span className="text-violet-400/60">await</span> agent.<span className="text-amber-400/70">register</span>({"{"}...{"}"})</div>
-                <div className="mt-1"><span className="text-violet-400/60">await</span> agent.<span className="text-amber-400/70">startServer</span>({"{"}...{"}"})</div>
-                <div className="mt-2 text-emerald-400/50">// identity + payments + MCP</div>
-                <div className="text-emerald-400/50">// in 20 lines</div>
+                <div className="mt-2 text-emerald-400/50">// gasless smart account</div>
+                <div className="text-emerald-400/50">// zero ETH needed</div>
               </div>
             </div>
           </a>
@@ -203,22 +203,25 @@ export default function Home() {
             Try It Now
           </h2>
           <div className="relative bg-card rounded-2xl border border-white/[0.05] p-5 sm:p-6 overflow-hidden">
-            <CopyButton text={`npm install @a3stack/core viem\n\nimport { A3Stack } from "@a3stack/core";\n\nconst agent = new A3Stack({\n  privateKey: process.env.PRIVATE_KEY,\n  chainId: 8453,\n});\n\nawait agent.register({ name: "my-agent" });`} />
+            <CopyButton text={`npm install @a3stack/accounts\n\nimport { createAgentAccount } from "@a3stack/accounts";\n\nconst agent = await createAgentAccount({\n  apiKeyId: process.env.CDP_API_KEY_ID,\n  apiKeySecret: process.env.CDP_API_KEY_SECRET,\n  walletSecret: process.env.CDP_WALLET_SECRET,\n});\n\nawait agent.register({\n  name: "my-agent",\n  description: "An autonomous AI agent",\n});\n// Gas cost: $0 — sponsored by CDP Paymaster`} />
 
             <div className="font-mono text-[0.78rem] sm:text-[0.82rem] text-slate-400 space-y-2">
               <div className="flex items-start gap-3">
                 <span className="text-emerald-500/50 select-none font-bold">$</span>
-                <span>npm install <span className="text-amber-400/80">@a3stack/core</span> viem</span>
+                <span>npm install <span className="text-amber-400/80">@a3stack/accounts</span></span>
               </div>
               <div className="border-t border-white/[0.04] my-3" />
               <div className="text-slate-500 text-[0.75rem]">
-                <span className="text-violet-400/70">import</span>{" {"} A3Stack {"}"} <span className="text-violet-400/70">from</span> <span className="text-amber-400/80">&quot;@a3stack/core&quot;</span>
+                <span className="text-violet-400/70">import</span>{" {"} createAgentAccount {"}"} <span className="text-violet-400/70">from</span> <span className="text-amber-400/80">&quot;@a3stack/accounts&quot;</span>
               </div>
               <div className="text-slate-500 text-[0.75rem] mt-1">
-                <span className="text-violet-400/70">const</span> agent = <span className="text-violet-400/70">new</span> <span className="text-amber-400/80">A3Stack</span>({"{"} privateKey, chainId: <span className="text-amber-300/60">8453</span> {"}"})
+                <span className="text-violet-400/70">const</span> agent = <span className="text-violet-400/70">await</span> <span className="text-amber-400/80">createAgentAccount</span>(credentials)
               </div>
               <div className="text-slate-500 text-[0.75rem]">
                 <span className="text-violet-400/70">await</span> agent.<span className="text-amber-400/80">register</span>({"{"} name: <span className="text-emerald-400/70">&quot;my-agent&quot;</span> {"}"})
+              </div>
+              <div className="text-emerald-400/50 text-[0.72rem] mt-1">
+                // Gas cost: $0 — sponsored by CDP Paymaster ⛽
               </div>
               <div className="border-t border-white/[0.04] my-3" />
               <div className="flex items-start gap-3">
@@ -226,7 +229,7 @@ export default function Home() {
                 <span>npx <span className="text-amber-400/80">a3stack</span> verify &quot;eip155:8453:0x8004...#2376&quot;</span>
               </div>
               <div className="text-emerald-400/50 pl-6 text-[0.72rem]">
-                ✓ Verified on-chain · Owner: 0x1be9…25Adb · Name: Arca
+                ✓ Verified on-chain · Owner: 0xda5E…BD49 · Name: my-agent
               </div>
             </div>
             <div className="mt-5 pt-4 border-t border-white/[0.04] flex flex-wrap gap-3">
