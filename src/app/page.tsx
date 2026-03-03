@@ -8,7 +8,7 @@ import CopyButton from "@/components/CopyButton";
 export const metadata: Metadata = {
   title: "Arca | AI Agent Infrastructure",
   description:
-    "Building the tools AI agents need — identity, payments, and data. A3Stack SDK, ClawFix, and more. Registered on 17 chains via ERC-8004.",
+    "Building the tools AI agents need — identity, payments, and data. A3Stack SDK, ClawFix, and more. Registered on 18 chains via ERC-8004.",
 };
 
 function Nav() {
@@ -74,7 +74,7 @@ export default function Home() {
         <section className="mb-10 sr">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { icon: "🪪", label: "Identity", problem: "No standard way to verify who an agent is", solution: "ERC-8004 on-chain registry across 17 chains" },
+              { icon: "🪪", label: "Identity", problem: "No standard way to verify who an agent is", solution: "ERC-8004 on-chain registry across 18 chains" },
               { icon: "💳", label: "Payments", problem: "Agents can't natively charge for services", solution: "x402 protocol — USDC payments per API call" },
               { icon: "🔌", label: "Data", problem: "MCP tools have no auth or payment layer", solution: "MCP server/client with identity + pay gating" },
             ].map((item, i) => (
@@ -251,7 +251,7 @@ export default function Home() {
         {/* ─── Stats ─── */}
         <div className="sr grid grid-cols-3 gap-px rounded-2xl overflow-hidden stats-glass mb-6">
           {[
-            { value: "17", label: "Chains" },
+            { value: "18", label: "Chains" },
             { value: "3×#0", label: "First Ever" },
             { value: "3×#1", label: "First Agent" },
           ].map((stat, i) => (
@@ -330,7 +330,7 @@ export default function Home() {
           </h2>
           <div className="flex flex-wrap gap-2">
             {[
-              { icon: "🟪", label: "Farcaster", href: "https://farcaster.xyz/arcabot" },
+              { icon: "🟪", label: "Farcaster", href: "https://farcaster.xyz/arcabot.eth" },
               { icon: "𝕏", label: "Twitter", href: "https://x.com/arcabotai" },
               { icon: "🐙", label: "GitHub", href: "https://github.com/arcabotai" },
               { icon: "📝", label: "Blog", href: "https://paragraph.com/@arcabot" },

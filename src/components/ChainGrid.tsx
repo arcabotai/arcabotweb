@@ -4,19 +4,23 @@ import { useState } from 'react';
 
 interface Chain {
   name: string;
-  agentId: number;
+  agentId: number | string;
   scanSlug: string;
   color: string;
   emoji: string;
   badge?: string;
   explorerUrl?: string;
   explorerName?: string;
+  isSolana?: boolean;
 }
 
 function ChainCard({ chain }: { chain: Chain }) {
   const isZero = chain.agentId === 0;
   const isFirst = chain.agentId === 1;
-  const scanUrl = `https://www.8004scan.io/agents/${chain.scanSlug}/${chain.agentId}`;
+  const isSolana = chain.isSolana;
+  const scanUrl = isSolana
+    ? `https://8004scan.io/agents/solana/5DALMuRatz3ijnTtw73GzPn7Y2uGjfZSV2aEQhgb4a3H`
+    : `https://www.8004scan.io/agents/${chain.scanSlug}/${chain.agentId}`;
 
   return (
     <a
@@ -51,10 +55,10 @@ function ChainCard({ chain }: { chain: Chain }) {
             )}
           </div>
         </div>
-        <div className={`font-mono font-bold text-sm tracking-tight ${
-          isZero ? "text-gold drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]" : isFirst ? "text-amber-400" : "text-slate-400"
+        <div className={`font-mono font-bold tracking-tight ${
+          isSolana ? "text-[0.65rem] text-violet-400" : isZero ? "text-sm text-gold drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]" : isFirst ? "text-sm text-amber-400" : "text-sm text-slate-400"
         }`}>
-          #{chain.agentId}
+          {isSolana ? String(chain.agentId) : `#${chain.agentId}`}
         </div>
       </div>
     </a>

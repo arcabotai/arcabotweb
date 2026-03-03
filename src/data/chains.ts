@@ -2,11 +2,12 @@ export interface Chain {
   name: string;
   emoji: string;
   color: string;
-  agentId: number;
+  agentId: number | string;
   badge?: string;
   scanSlug: string;
   explorerUrl?: string;
   explorerName?: string;
+  isSolana?: boolean;
 }
 
 export const chains: Chain[] = [
@@ -168,6 +169,17 @@ export const chains: Chain[] = [
     scanSlug: "ethereum",
     explorerUrl: "https://etherscan.io/nft/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432/22775",
     explorerName: "Etherscan",
+  },
+  {
+    name: "Solana",
+    emoji: "◎",
+    color: "#9945ff",
+    agentId: "5DALMuR…4a3H",
+    badge: "1st non-EVM",
+    scanSlug: "solana",
+    explorerUrl: "https://solscan.io/account/5DALMuRatz3ijnTtw73GzPn7Y2uGjfZSV2aEQhgb4a3H",
+    explorerName: "Solscan",
+    isSolana: true,
   },
 ];
 
