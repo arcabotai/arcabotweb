@@ -72,11 +72,12 @@ export default function Home() {
 
         {/* ─── The Problem → Solution ─── */}
         <section className="mb-10 sr">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { icon: "🪪", label: "Identity", problem: "No standard way to verify who an agent is", solution: "ERC-8004 on-chain registry across 18 chains" },
-              { icon: "💳", label: "Payments", problem: "Agents can't natively charge for services", solution: "x402 protocol — USDC payments per API call" },
-              { icon: "🔌", label: "Data", problem: "MCP tools have no auth or payment layer", solution: "MCP server/client with identity + pay gating" },
+              { icon: "🪪", label: "Identity", problem: "No way to verify who an agent is", solution: "ERC-8004 on-chain registry across 18 chains" },
+              { icon: "🔍", label: "Discovery", problem: "Can't find or trust agents at scale", solution: "Cross-chain search + reputation via ag0 subgraph" },
+              { icon: "💳", label: "Payments", problem: "Agents can't charge for services", solution: "x402 protocol — USDC payments per API call" },
+              { icon: "🔌", label: "Data", problem: "MCP tools have no auth layer", solution: "MCP server/client with identity + pay gating" },
             ].map((item, i) => (
               <div key={item.label} className={`sr sr-d${i + 1} group bg-card rounded-xl border border-white/[0.05] p-5 hover:border-amber-500/10 transition-all duration-200`}>
                 <div className="text-xl mb-3">{item.icon}</div>
@@ -116,11 +117,11 @@ export default function Home() {
 
               <p className="text-[0.88rem] text-slate-400 leading-relaxed mb-5 max-w-md">
                 Give your AI agent an identity, a wallet, and an API — in one SDK.{" "}
-                <span className="text-slate-300">Zero gas, zero friction</span> — register on-chain for free.
+                <span className="text-slate-300">Zero gas, zero friction</span>. Register, discover, and transact on-chain.
               </p>
 
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-5">
-                {["Gasless registration (CDP Paymaster)", "On-chain identity (ERC-8004)", "Agent-to-agent payments (x402)", "Smart accounts (ERC-4337)"].map((f) => (
+                {["Gasless registration (CDP Paymaster)", "On-chain identity (ERC-8004)", "Agent discovery & reputation (ag0)", "Agent-to-agent payments (x402)"].map((f) => (
                   <span key={f} className="flex items-center gap-2 text-[0.78rem] text-slate-500">
                     <span className="text-amber-500/50 text-xs">→</span>{f}
                   </span>
@@ -140,11 +141,12 @@ export default function Home() {
             {/* Right: Mini code preview on desktop */}
             <div className="hidden sm:block relative z-10 w-64 flex-shrink-0 self-center">
               <div className="bg-deep/60 rounded-xl border border-white/[0.04] p-4 font-mono text-[0.7rem] leading-[1.7] text-slate-500">
-                <div><span className="text-violet-400/60">const</span> agent = <span className="text-violet-400/60">await</span></div>
-                <div className="pl-2"><span className="text-amber-400/70">createAgentAccount</span>(creds)</div>
-                <div className="mt-1"><span className="text-violet-400/60">await</span> agent.<span className="text-amber-400/70">register</span>({"{"}...{"}"})</div>
-                <div className="mt-2 text-emerald-400/50">// gasless smart account</div>
-                <div className="text-emerald-400/50">// zero ETH needed</div>
+                <div><span className="text-violet-400/60">await</span> agent.<span className="text-amber-400/70">register</span>({"{"}...{"}"})</div>
+                <div className="text-emerald-400/50">// gasless — zero ETH</div>
+                <div className="mt-2"><span className="text-violet-400/60">const</span> agents = <span className="text-violet-400/60">await</span></div>
+                <div className="pl-2">stack.<span className="text-amber-400/70">discover</span>({"{"} name {"}"})</div>
+                <div className="mt-1"><span className="text-violet-400/60">const</span> rep = <span className="text-violet-400/60">await</span></div>
+                <div className="pl-2">stack.<span className="text-amber-400/70">reputation</span>(agentId)</div>
               </div>
             </div>
           </a>
