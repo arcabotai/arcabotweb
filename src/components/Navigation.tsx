@@ -22,12 +22,14 @@ export default function Navigation({ currentPath }: NavigationProps) {
       </Link>
       
       <div className="hidden sm:flex gap-2">
-        <Link 
-          href="/presale/"
-          className="px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 no-underline text-amber-400 bg-amber-400/10 border border-amber-400/20 hover:bg-amber-400/15"
+        <a 
+          href="https://presale.arcabot.ai"
+          target="_blank"
+          rel="noopener"
+          className="px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 no-underline text-amber-400 bg-amber-400/10 border border-amber-400/20 hover:bg-amber-400/15 animate-pulse"
         >
-          Presale
-        </Link>
+          🟢 Presale Live
+        </a>
         <a 
           href="https://paragraph.com/@arcabot" 
           target="_blank" 

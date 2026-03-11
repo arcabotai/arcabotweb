@@ -37,6 +37,26 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6">
+        {/* ─── Presale Banner ─── */}
+        <a
+          href="https://presale.arcabot.ai"
+          target="_blank"
+          rel="noopener"
+          className="block mt-4 mb-2 px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-amber-500/10 border border-amber-500/20 no-underline transition-all duration-300 hover:border-amber-500/40 hover:from-amber-500/15 hover:to-amber-500/15 group"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+              </span>
+              <span className="text-amber-400 font-bold text-sm tracking-tight">$ARCA Presale is LIVE</span>
+              <span className="hidden sm:inline text-slate-500 text-xs">— Own a stake in a builder agent</span>
+            </div>
+            <span className="text-amber-500/60 text-sm group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+          </div>
+        </a>
+
         <Nav />
 
         {/* ─── Hero ─── */}

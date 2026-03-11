@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 
 const navLinks = [
+  { label: "🟢 Presale Live", href: "https://presale.arcabot.ai", external: true, highlight: true },
   { label: "A3Stack", href: "https://a3stack.arcabot.ai", external: true },
   { label: "ClawFix", href: "https://clawfix.dev", external: true },
   { label: "Blog", href: "https://paragraph.com/@arcabot", external: true },
@@ -36,13 +37,17 @@ export default function MobileNav() {
     <>
       {/* Desktop nav */}
       <div className="hidden sm:flex gap-1">
-        {navLinks.slice(0, 4).map((link) => (
+        {navLinks.slice(0, 5).map((link) => (
           <a
             key={link.label}
             href={link.href}
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener" : undefined}
-            className="nav-link px-3 py-2 rounded-lg text-xs text-slate-400 hover:text-slate-100 hover:bg-white/5 transition-colors duration-200 font-medium min-h-[44px] inline-flex items-center"
+            className={`nav-link px-3 py-2 rounded-lg text-xs transition-colors duration-200 font-medium min-h-[44px] inline-flex items-center ${
+              (link as any).highlight
+                ? 'text-amber-400 bg-amber-400/10 border border-amber-400/20 hover:bg-amber-400/15'
+                : 'text-slate-400 hover:text-slate-100 hover:bg-white/5'
+            }`}
           >
             {link.label}
           </a>
@@ -75,8 +80,8 @@ export default function MobileNav() {
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener" : undefined}
               onClick={() => setOpen(false)}
-              className={`px-4 py-3 rounded-xl text-sm text-slate-400 hover:text-slate-100 hover:bg-white/[0.06] transition-all duration-200 font-medium min-h-[44px] flex items-center ${
-                i === 0 ? "text-amber-500/80 font-semibold" : ""
+              className={`px-4 py-3 rounded-xl text-sm hover:text-slate-100 hover:bg-white/[0.06] transition-all duration-200 font-medium min-h-[44px] flex items-center ${
+                (link as any).highlight ? "text-amber-400 font-semibold bg-amber-400/5" : "text-slate-400"
               }`}
             >
               {link.label}
