@@ -26,9 +26,9 @@ export default function Navigation({ currentPath }: NavigationProps) {
           href="https://presale.arcabot.ai"
           target="_blank"
           rel="noopener"
-          className="px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 no-underline text-amber-400 bg-amber-400/10 border border-amber-400/20 hover:bg-amber-400/15 animate-pulse"
+          className="px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 no-underline text-slate-400 bg-slate-400/10 border border-slate-400/20 hover:bg-slate-400/15"
         >
-          🟢 Presale Live
+          Claim Refund
         </a>
         <a 
           href="https://paragraph.com/@arcabot" 

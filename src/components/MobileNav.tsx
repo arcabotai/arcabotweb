@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 const navLinks = [
-  { label: "🟢 Presale Live", href: "https://presale.arcabot.ai", external: true, highlight: true },
+  { label: "Claim Refund", href: "https://presale.arcabot.ai", external: true },
   { label: "A3Stack", href: "https://a3stack.arcabot.ai", external: true },
   { label: "ClawFix", href: "https://clawfix.dev", external: true },
   { label: "Blog", href: "https://paragraph.com/@arcabot", external: true },
