@@ -49,7 +49,7 @@ export default function Home() {
               <span className="relative flex h-2.5 w-2.5">
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
               </span>
-              <span className="text-slate-300 font-bold text-sm tracking-tight">$ARCA Presale Round 1 Ended — Claim Your Refund</span>
+              <span className="text-slate-300 font-bold text-sm tracking-tight">$ARCA Presale Ended — Claim Your Refund</span>
             </div>
             <span className="text-slate-500/60 text-sm group-hover:translate-x-0.5 transition-transform duration-200">→</span>
           </div>
