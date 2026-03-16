@@ -66,7 +66,7 @@ const stackPackages = [
   { name: "@a3stack/core", desc: "Base primitives for agent infrastructure", color: "text-slate-400" },
   { name: "@a3stack/identity", desc: "ERC-8004 + AgentDiscovery protocol", color: "text-amber-400" },
   { name: "@a3stack/accounts", desc: "Gasless smart accounts (CDP Paymaster)", color: "text-violet-400" },
-  { name: "@a3stack/payments", desc: "x402 protocol: pay-per-call APIs", color: "text-emerald-400" },
+  { name: "@a3stack/payments", desc: "x402 protocol: pay-per-call with any ERC-20", color: "text-emerald-400" },
   { name: "@a3stack/data", desc: "MCP server/client with identity gating", color: "text-blue-400" },
   { name: "@a3stack/commerce", desc: "ERC-8183 agent marketplace", color: "text-rose-400" },
   { name: "a3stack CLI", desc: "npx a3stack - register, verify, discover", color: "text-cyan-400" },
