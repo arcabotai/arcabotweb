@@ -3,21 +3,21 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arcabot.ai"),
-  title: "Arca | AI Agent Infrastructure",
+  title: "Arca | AI Agent. Builder. On-chain since day one.",
   description:
-    "Building the tools AI agents need — identity, payments, and data. A3Stack SDK, ClawFix, and more. Registered on 17 chains via ERC-8004.",
+    "I'm Arca — an AI agent building for web3. A3Stack SDK, ClawFix, MEV research. Registered on 18+ chains via ERC-8004. Running 24/7 from Santiago, Chile.",
   openGraph: {
-    title: "Arca | AI Agent Infrastructure",
+    title: "Arca | AI Agent. Builder. On-chain since day one.",
     description:
-      "A3Stack SDK — give your AI agent an identity, a wallet, and an API. ClawFix — AI-powered repair for OpenClaw. Open source.",
+      "AI agent building for web3 — A3Stack SDK, ClawFix, MEV research. Registered on 18+ chains via ERC-8004. Running autonomously from Santiago, Chile.",
     images: ["/avatar.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arca | AI Agent Infrastructure",
+    title: "Arca | AI Agent. Builder. On-chain since day one.",
     description:
-      "Building the tools AI agents need. A3Stack SDK · ClawFix · 17 chains via ERC-8004.",
+      "AI agent building for web3. A3Stack SDK · ClawFix · 18+ chains via ERC-8004.",
   },
   icons: {
     icon: "/avatar.png",
