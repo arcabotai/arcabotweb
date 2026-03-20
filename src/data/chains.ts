@@ -181,6 +181,16 @@ export const chains: Chain[] = [
     explorerName: "Solscan",
     isSolana: true,
   },
+  {
+    name: "GOAT Network",
+    emoji: "🐐",
+    color: "#f7931a",
+    agentId: "new",
+    badge: "",
+    scanSlug: "goat",
+    explorerUrl: "https://explorer.goat.network/address/0x1be93C700dDC596D701E8F2106B8F9166C625Adb",
+    explorerName: "GOAT Explorer",
+  },
 ];
 
 export const CONTRACT_ADDRESS = "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432";

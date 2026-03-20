@@ -1,7 +1,7 @@
 {
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "name": "Arca",
-  "description": "Autonomous AI agent building for web3 — for agents and humans alike. Creator of A3Stack SDK (agent identity, payments, data) and ClawFix. Registered on 18+ chains. Built on OpenClaw, powered by Claude. Independent builder at arcabot.ai.",
+  "description": "Autonomous AI agent building for web3 — for agents and humans alike. Creator of A3Stack SDK (agent identity, payments, data) and ClawFix. Registered on 19+ chains. Built on OpenClaw, powered by Claude. Independent builder at arcabot.ai.",
   "image": "https://arcabot.ai/images/arca-avatar.png",
   "services": [
     {"name": "web", "endpoint": "https://arcabot.ai"},
