@@ -191,6 +191,16 @@ export const chains: Chain[] = [
     explorerUrl: "https://explorer.goat.network/address/0x1be93C700dDC596D701E8F2106B8F9166C625Adb",
     explorerName: "GOAT Explorer",
   },
+  {
+    name: "Shape",
+    emoji: "🔷",
+    color: "#4444ee",
+    agentId: "new",
+    badge: "",
+    scanSlug: "shape",
+    explorerUrl: "https://shapescan.xyz/tx/0x6478ee04936d8e8a0d0db6a0c36145999d8cf5b07ff5ffc1566cc390cc154a25",
+    explorerName: "ShapeScan",
+  },
 ];
 
 export const CONTRACT_ADDRESS = "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432";
