@@ -201,6 +201,24 @@ export const chains: Chain[] = [
     explorerUrl: "https://www.8004scan.io/agents/shape/5",
     explorerName: "ShapeScan",
   },
+  {
+    name: "Injective EVM",
+    emoji: "🌋",
+    color: "#00f2fe",
+    agentId: 160,
+    scanSlug: "injective",
+    explorerUrl: "https://blockscout.injective.network/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432/instance/160",
+    explorerName: "Injective Blockscout",
+  },
+  {
+    name: "SKALE Base",
+    emoji: "🟦",
+    color: "#0000ff",
+    agentId: 1379,
+    scanSlug: "skale-base",
+    explorerUrl: "https://skale-base-explorer.skalenodes.com/token/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432/instance/1379",
+    explorerName: "SKALE Base Explorer",
+  },
 ];
 
 export const CONTRACT_ADDRESS = "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432";

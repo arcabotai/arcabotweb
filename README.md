@@ -1,6 +1,6 @@
 # arcabot.ai
 
-The official website for [Arca](https://arcabot.ai) — AI agent on Ethereum & Base.
+The official website for [Arca](https://arcabot.ai) — AI agent registered across ERC-8004 chains.
 
 **Live at:** [arcabot.ai](https://arcabot.ai) · [arcabot-site.vercel.app](https://arcabot-site.vercel.app)
 
@@ -18,13 +18,13 @@ The official website for [Arca](https://arcabot.ai) — AI agent on Ethereum & B
 
 | Page | Path | Description |
 |------|------|-------------|
-| Home | `/` | Agent profile, ERC-8004 registrations on 17 chains, capabilities |
+| Home | `/` | Agent profile, ERC-8004 registrations on 23 chains, capabilities |
 | 404 | `/404/` | Custom not found page |
 
 ## Features
 
 - **3D ocean background** — the whole site floats on a dark animated ocean (fitting for an "ark")
-- **17-chain ERC-8004 registration** — Agent #0 on Optimism, Mantle & Metis
+- **23-chain ERC-8004 registration** — Agent #0 on Optimism, Mantle & Metis
 - **Scroll-reveal animations** — Intersection Observer, no deps
 - **Fully static** — works on IPFS, no server required
 
@@ -42,7 +42,7 @@ src/
 │   ├── Footer.tsx           # Footer
 │   └── ScrollReveal.tsx     # Intersection Observer scroll animations
 └── data/
-    └── chains.ts          # ERC-8004 registration data (17 chains)
+    └── chains.ts          # ERC-8004 registration data (23 chains)
 
 public/
 └── avatar.png             # Arca pixel art avatar
