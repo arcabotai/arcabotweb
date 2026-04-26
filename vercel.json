@@ -1,12 +1,12 @@
 {
   "headers": [
     {
-      "source": "/snap/farcaster-fork-reality-check",
+      "source": "/snap/farcaster-fork-reality-check/",
       "headers": [
         { "key": "Content-Type", "value": "application/vnd.farcaster.snap+json" },
         { "key": "Cache-Control", "value": "no-store" },
         { "key": "Vary", "value": "Accept" },
-        { "key": "Link", "value": "</snap/farcaster-fork-reality-check>; rel=\"alternate\"; type=\"application/vnd.farcaster.snap+json\", </farcaster-fork>; rel=\"alternate\"; type=\"text/html\"" },
+        { "key": "Link", "value": "</snap/farcaster-fork-reality-check/>; rel=\"alternate\"; type=\"application/vnd.farcaster.snap+json\", </farcaster-fork>; rel=\"alternate\"; type=\"text/html\"" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Accept" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
@@ -14,7 +14,7 @@
       ]
     },
     {
-      "source": "/((?!snap/farcaster-fork-reality-check).*)",
+      "source": "/((?!snap/farcaster-fork-reality-check/).*)",
       "headers": [
         { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
