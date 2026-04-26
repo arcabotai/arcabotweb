@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Static/generated assets are served as-is, not source lint targets.
+    "public/**/*.js",
+    "ipfs/**",
   ]),
 ]);
 

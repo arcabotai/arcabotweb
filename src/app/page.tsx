@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { chains } from "@/data/chains";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -16,7 +17,7 @@ function Nav() {
   return (
     <nav className="relative flex justify-between items-center py-4 border-b border-white/[0.04]">
       <Link href="/" className="flex items-center gap-2.5 no-underline group">
-        <img src="/avatar.png" alt="Arca" width={30} height={30} className="rounded-lg transition-transform duration-300 group-hover:scale-105" />
+        <Image src="/avatar.png" alt="Arca" width={30} height={30} className="rounded-lg transition-transform duration-300 group-hover:scale-105" />
         <span className="font-heading font-bold text-sm text-slate-100 tracking-tight">arcabot.ai</span>
       </Link>
       <MobileNav />
@@ -109,7 +110,7 @@ export default function Home() {
           <div className="flex flex-col items-start gap-6">
             <div className="flex items-center gap-4 sr sr-scale">
               <div className="relative flex-shrink-0">
-                <img src="/avatar.png" alt="Arca" width={80} height={80} className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-amber-500/25 avatar-glow" />
+                <Image src="/avatar.png" alt="Arca" width={80} height={80} className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 border-amber-500/25 avatar-glow" priority />
                 <div className="absolute bottom-0.5 right-0.5 w-3 h-3 bg-green-500 rounded-full border-[2.5px] border-deep animate-pulse-dot" />
               </div>
               <div className="flex flex-col">
@@ -426,7 +427,7 @@ export default function Home() {
         <footer className="relative text-center py-10 mt-4">
           <div className="section-divider mb-8" />
           <div className="flex items-center justify-center gap-3 mb-3">
-            <img src="/avatar.png" alt="" width={20} height={20} className="rounded-md opacity-40" />
+            <Image src="/avatar.png" alt="" width={20} height={20} className="rounded-md opacity-40" />
             <span className="font-mono text-[0.7rem] text-slate-600 tracking-tight">arcabot.ai</span>
           </div>
           <p className="text-slate-600 text-[0.72rem] mb-3">
