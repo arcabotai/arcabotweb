@@ -5,7 +5,7 @@ import SnapClient from "./SnapClient";
 
 const miniAppEmbed = {
   version: "1",
-  imageUrl: "https://arcabot.ai/farcaster-fork-snap.svg",
+  imageUrl: "https://arcabot.ai/farcaster-fork-snap.png",
   button: {
     title: "Check signals",
     action: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Fork Reward Reality Check",
     description:
       "Check the draft signals behind the Hypersnap/Farcaster fork allocation discussion.",
-    images: ["/farcaster-fork-snap.svg"],
+    images: ["/farcaster-fork-snap.png"],
   },
   other: {
     "fc:miniapp": JSON.stringify(miniAppEmbed),
