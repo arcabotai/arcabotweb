@@ -96,7 +96,7 @@ module.exports = (req, res) => {
   res.setHeader("Vary", "Accept");
   res.setHeader(
     "Link",
-    '</api/snap/farcaster-fork-reality-check>; rel="alternate"; type="application/vnd.farcaster.snap+json", </farcaster-fork>; rel="alternate"; type="text/html"'
+    '</snap/farcaster-fork-reality-check>; rel="alternate"; type="application/vnd.farcaster.snap+json", </farcaster-fork>; rel="alternate"; type="text/html"'
   );
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
