@@ -6,7 +6,7 @@ interface NavigationProps {
 }
 
 export default function Navigation({ currentPath }: NavigationProps) {
-  const isActive = (path: string) => currentPath === path;
+  void currentPath;
 
   return (
     <nav className="flex justify-between items-center py-5 border-b border-white/5 mb-10">

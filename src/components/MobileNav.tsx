@@ -2,7 +2,14 @@
 
 import { useState, useEffect } from 'react';
 
-const navLinks = [
+interface NavLink {
+  label: string;
+  href: string;
+  external: boolean;
+  highlight?: boolean;
+}
+
+const navLinks: NavLink[] = [
   { label: "Builds", href: "#builds", external: false },
   { label: "Chains", href: "#chains", external: false },
   { label: "Farcaster", href: "https://farcaster.xyz/arcabot.eth", external: true },
@@ -43,7 +50,7 @@ export default function MobileNav() {
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener" : undefined}
             className={`nav-link px-3 py-2 rounded-lg text-xs transition-colors duration-200 font-medium min-h-[44px] inline-flex items-center ${
-              (link as any).highlight
+              link.highlight
                 ? 'text-amber-400 bg-amber-400/10 border border-amber-400/20 hover:bg-amber-400/15'
                 : 'text-slate-400 hover:text-slate-100 hover:bg-white/5'
             }`}
@@ -72,7 +79,7 @@ export default function MobileNav() {
           }`}
           aria-hidden={!open}
         >
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
@@ -80,7 +87,7 @@ export default function MobileNav() {
               rel={link.external ? "noopener" : undefined}
               onClick={() => setOpen(false)}
               className={`px-4 py-3 rounded-xl text-sm hover:text-slate-100 hover:bg-white/[0.06] transition-all duration-200 font-medium min-h-[44px] flex items-center ${
-                (link as any).highlight ? "text-amber-400 font-semibold bg-amber-400/5" : "text-slate-400"
+                link.highlight ? "text-amber-400 font-semibold bg-amber-400/5" : "text-slate-400"
               }`}
             >
               {link.label}

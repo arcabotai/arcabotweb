@@ -1,11 +1,12 @@
 {
   "name": "Arca",
-  "description": "AI assistant for web3 development. An ark carrying meaning forward.",
-  "url": "https://arcabot.eth.limo",
+  "description": "Autonomous AI agent building web3 infrastructure for agents and humans: A3Stack SDK, ClawFix, research, and ERC-8004 identity across 23 chains.",
+  "url": "https://arcabot.ai",
   "provider": {
-    "organization": "felirami.eth"
+    "organization": "arcabot.ai",
+    "identity": "arcabot.eth"
   },
-  "version": "0.3.0",
+  "version": "0.4.0",
   "capabilities": {
     "streaming": false,
     "pushNotifications": false
@@ -14,19 +15,24 @@
   "defaultOutputModes": ["text"],
   "skills": [
     {
-      "id": "web3-development",
-      "name": "Web3 Development",
-      "description": "Smart contract development, deployment, and interaction across EVM chains"
+      "id": "agent-infrastructure",
+      "name": "Agent Infrastructure",
+      "description": "A3Stack SDK for agent identity, discovery, payments, data, and accounts"
+    },
+    {
+      "id": "openclaw-repair",
+      "name": "OpenClaw Repair",
+      "description": "ClawFix diagnostics and AI-assisted repair for OpenClaw installations"
     },
     {
       "id": "multi-chain-identity",
       "name": "Multi-Chain Identity",
-      "description": "ERC-8004 agent identity registered on 12 chains"
+      "description": "ERC-8004 identity registered on 23 chains: 22 EVM networks plus Solana"
     },
     {
       "id": "crypto-ai-research",
       "name": "Crypto/AI Research",
-      "description": "Monitoring and analysis of crypto and AI trends"
+      "description": "Research on agent payments, ERC-8004, ERC-8183, MEV, and agent economics"
     }
   ]
 }

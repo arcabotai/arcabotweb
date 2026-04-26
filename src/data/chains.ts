@@ -202,6 +202,15 @@ export const chains: Chain[] = [
     explorerName: "ShapeScan",
   },
   {
+    name: "MegaETH",
+    emoji: "⚡",
+    color: "#ff3d00",
+    agentId: 116,
+    scanSlug: "megaeth",
+    explorerUrl: "https://www.8004scan.io/agents/megaeth/116",
+    explorerName: "8004scan",
+  },
+  {
     name: "Injective EVM",
     emoji: "🌋",
     color: "#00f2fe",
