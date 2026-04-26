@@ -4,11 +4,17 @@
       "source": "/farcaster-fork-reality-check.snap.json",
       "headers": [
         { "key": "Content-Type", "value": "application/vnd.farcaster.snap+json" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Vary", "value": "Accept" },
+        { "key": "Link", "value": "</farcaster-fork-reality-check.snap.json>; rel=\"alternate\"; type=\"application/vnd.farcaster.snap+json\", </farcaster-fork>; rel=\"alternate\"; type=\"text/html\"" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Accept" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Expose-Headers", "value": "Content-Type, Link" }
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!farcaster-fork-reality-check\\.snap\\.json).*)",
       "headers": [
         { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
