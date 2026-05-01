@@ -3,21 +3,21 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Hypersnap Token Naming Memo | Arca",
+  title: "Hypersnap / Snap Token Naming Memo | Arca",
   description:
-    "A serious naming memo for the Hypersnap fork token: recommended ticker, alternatives, collision notes, and decision criteria.",
+    "A serious naming memo for the Hypersnap / Snap token: stewardship framing, ticker alternatives, collision notes, and decision criteria.",
   openGraph: {
-    title: "Hypersnap Token Naming Memo",
+    title: "Hypersnap / Snap Token Naming Memo",
     description:
-      "Recommended token ticker and naming rationale for the Hypersnap Farcaster fork.",
+      "Ticker naming rationale for the Hypersnap / Snapchain continuity debate.",
     type: "article",
     images: ["/avatar.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hypersnap Token Naming Memo",
+    title: "Hypersnap / Snap Token Naming Memo",
     description:
-      "A practical decision memo for naming the Hypersnap fork token.",
+      "A practical decision memo for naming the Hypersnap / Snap token.",
   },
 };
 
@@ -26,22 +26,40 @@ const candidates = [
     rank: "01",
     ticker: "HSNAP",
     name: "Hypersnap",
-    verdict: "Recommended",
-    score: "9.2",
-    fit: "Best balance of clarity, ownership, and current community momentum.",
+    verdict: "Safest ticker",
+    score: "8.9",
+    fit: "Best public-market ticker if the team wants Snap lineage without taking the bare SNAP collision.",
     rationale: [
-      "Directly names the fork instead of implying a canonical Farcaster token.",
-      "Easy to explain in one sentence: Hypersnap token, ticker HSNAP.",
+      "Keeps the Hypersnap label while respecting that Snapchain continuity is the real dispute.",
+      "Easy to explain in one sentence: the Hypersnap token uses HSNAP as its market ticker.",
       "Already appears in public allocation-checker language, which gives it early social familiarity.",
       "Exact ticker collision looked clean in a quick Dexscreener / CoinGecko symbol check.",
     ],
     risks: [
-      "Less elegant than a more abstract brand.",
-      "Needs consistent pronunciation: H-snap is clearer than trying to say it as one word.",
+      "Weaker than bare SNAP as a statement of continuity.",
+      "Can sound like a hedge if the project wants to claim the Snap lineage directly.",
     ],
   },
   {
     rank: "02",
+    ticker: "SNAP",
+    name: "Snap",
+    verdict: "Strongest thesis",
+    score: "8.7",
+    fit: "Best expression of Cassie's continuity argument, but risky as a market ticker.",
+    rationale: [
+      "Names the underlying primitive people already understand: Snapchain, snapshots, and snap-native continuity.",
+      "Makes the political point that this is not just an outside copy; it is an open-source continuation by builders who kept improving the stack.",
+      "Short, memorable, and much stronger as community language than a hedged acronym.",
+    ],
+    risks: [
+      "SNAP is Snap Inc.'s public stock ticker for Snapchat shares on the NYSE.",
+      "SNAP also had exact-symbol hits in quick crypto market checks, so search and exchange ambiguity are real.",
+      "Best used as the protocol word or community shorthand unless legal/exchange checks clear it as a ticker.",
+    ],
+  },
+  {
+    rank: "03",
     ticker: "SNAPX",
     name: "SnapX",
     verdict: "Best alternate",
@@ -58,7 +76,7 @@ const candidates = [
     ],
   },
   {
-    rank: "03",
+    rank: "04",
     ticker: "HCAST",
     name: "Hypercast",
     verdict: "Protocol-native",
@@ -75,7 +93,7 @@ const candidates = [
     ],
   },
   {
-    rank: "04",
+    rank: "05",
     ticker: "CASTR",
     name: "Caster",
     verdict: "Most social",
@@ -90,38 +108,21 @@ const candidates = [
       "Generic enough that other products could plausibly use it.",
       "Does not clearly separate the fork from the broader Farcaster ecosystem.",
     ],
-  },
-  {
-    rank: "05",
-    ticker: "SNAPW",
-    name: "Snap Work",
-    verdict: "Tokenomics-aligned",
-    score: "7.1",
-    fit: "Best if the team wants to emphasize proof-of-work markets over brand simplicity.",
-    rationale: [
-      "Directly points at the draft model: protocol-native work, not hash mining.",
-      "Works with the Data Availability, Growth, and Application work-market framing.",
-      "Useful for a technical audience discussing emissions and reward mechanics.",
-    ],
-    risks: [
-      "Less graceful as a consumer-facing ticker.",
-      "The W is meaningful only after explanation.",
-    ],
-  },
+  }
 ];
 
 const criteria = [
   {
-    label: "Truthful scope",
-    text: "The name should make clear this is for Hypersnap, an independent fork / experiment, not the canonical Farcaster protocol.",
+    label: "Lineage-aware clarity",
+    text: "The name should acknowledge the Snapchain lineage without forcing the community into a legitimacy frame it rejects.",
   },
   {
     label: "Low confusion",
-    text: "Avoid FAR, FCAST, FCSTR, or anything that reads as the official Farcaster token.",
+    text: "Avoid language that makes airdrop users, media, or scammers think the current Farcaster app is issuing a token.",
   },
   {
-    label: "Ticker ownership",
-    text: "Prefer symbols with low exact-match collision in crypto market surfaces and search.",
+    label: "Ticker collision",
+    text: "Prefer symbols that do not collide with major public equities, crowded crypto tickers, or existing consumer brands.",
   },
   {
     label: "Community usability",
@@ -140,11 +141,6 @@ const avoid = [
       "Too close to Farcaster itself. It invites the exact confusion the fork should avoid.",
   },
   {
-    ticker: "SNAP",
-    reason:
-      "Too generic and collision-heavy. It also underspecifies Hypersnap versus Snapchain versus random snap-branded products.",
-  },
-  {
     ticker: "HYPE / HYPER",
     reason:
       "Crowded namespace and immediately evokes Hyperliquid / other Hyper brands.",
@@ -156,7 +152,7 @@ const avoid = [
   },
   {
     ticker: "FAR",
-    reason: "Looks canonical. Bad fit for an independent fork token.",
+    reason: "Too broad and too close to official Farcaster branding for a fork-token launch.",
   },
 ];
 
@@ -164,7 +160,7 @@ const sources = [
   {
     title: "FIP-26: Hypersnap Commitment-Weighted Proof-of-Work Tokenomics",
     href: "https://github.com/orgs/farcasterorg/discussions/26",
-    note: "Defines the Hypersnap tokenomics scope and explicitly separates the fork from canonical Farcaster.",
+    note: "Defines the Hypersnap tokenomics scope and the tension between fork framing, continuity, and market confusion.",
   },
   {
     title: "FIP-19: Proof of Work Tokenization",
@@ -185,6 +181,16 @@ const sources = [
     title: "Public allocation checker",
     href: "https://hypersnap-alloction.vercel.app/",
     note: "Current public preview surface using HSNAP language. Treat as signal, not final launch authority.",
+  },
+  {
+    title: "Snap Inc. investor relations",
+    href: "https://investor.snap.com/stock-information/stock-quote/default.aspx",
+    note: "Public-market collision context: Snap Inc. / Snapchat trades under SNAP.",
+  },
+  {
+    title: "Farcaster token clarification coverage",
+    href: "https://www.panewslab.com/articles/019d8edc-8466-7010-bf02-6d5e4028bdd9",
+    note: "Market-context note that Farcaster token language created confusion around Hypersnap.",
   },
 ];
 
@@ -251,12 +257,10 @@ export default function HypersnapTokenNamesPage() {
               <span>Hypersnap token naming</span>
             </div>
             <h1 className="max-w-3xl font-heading text-5xl font-extrabold leading-[1.03] text-slate-50">
-              The token should be named Hypersnap, ticker HSNAP.
+              Snap is the strongest name. HSNAP is the safer ticker.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
-              The goal is not to invent the cleverest symbol. The goal is to reduce confusion,
-              preserve fork legitimacy, and give the dev chat a name people can repeat without
-              accidentally implying an official Farcaster token.
+              Cassie is right that the name should not concede legitimacy by calling Hypersnap merely an outside fork. The better frame is stewardship: Snap is the lineage, Hypersnap is the project, and the ticker has to survive public-market confusion.
             </p>
           </div>
 
@@ -267,20 +271,19 @@ export default function HypersnapTokenNamesPage() {
             <div className="mt-4 rounded-2xl border border-white/[0.08] bg-black/25 p-5">
               <p className="text-sm text-slate-400">Token name</p>
               <p className="mt-1 font-heading text-4xl font-extrabold text-slate-50">
-                Hypersnap
+                Snap / Hypersnap
               </p>
               <div className="my-5 h-px bg-white/[0.08]" />
               <p className="text-sm text-slate-400">Ticker</p>
               <p className="mt-1 font-mono text-5xl font-bold text-amber-300">$HSNAP</p>
               <p className="mt-4 text-sm leading-relaxed text-slate-400">
-                Use Hypersnap / HSNAP in public copy. Avoid the phrase Farcaster token unless the
-                sentence explicitly says it is not canonical Farcaster.
+                Use Snap as the lineage word if that is the community thesis. Use HSNAP as the safer market ticker unless SNAP clears legal, exchange, and search-risk review.
               </p>
             </div>
           </div>
         </header>
 
-        <Section kicker="Decision criteria" title="The name has to survive public confusion.">
+        <Section kicker="Decision criteria" title="The name has to respect lineage and survive public confusion.">
           <div className="grid gap-3 md:grid-cols-5">
             {criteria.map((item) => (
               <div key={item.label} className="rounded-2xl border border-white/[0.07] bg-white/[0.035] p-4">
@@ -288,6 +291,22 @@ export default function HypersnapTokenNamesPage() {
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
               </div>
             ))}
+          </div>
+        </Section>
+
+        <Section kicker="What changed" title="Cassie's critique improves the frame.">
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5">
+            <p className="text-base leading-relaxed text-slate-300">
+              The earlier memo used truthful scope too bluntly. That made the name sound like it
+              had to defer to the current Farcaster operator&apos;s idea of canonical legitimacy. The
+              stronger reading is different: if the project is continuing open Snapchain work after
+              stewardship changed, Snap is not a fake claim. It is the thesis.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-400">
+              The remaining objection to $SNAP is not ideological. It is operational: SNAP is a
+              public equity ticker for Snap Inc. / Snapchat and already appears as a crypto symbol.
+              That makes it expensive to search, list, defend, and explain.
+            </p>
           </div>
         </Section>
 
@@ -354,12 +373,7 @@ export default function HypersnapTokenNamesPage() {
         <Section kicker="Copy for dev chat" title="A concise proposal they can react to.">
           <div className="rounded-2xl border border-white/[0.08] bg-black/25 p-5">
             <p className="font-mono text-sm leading-relaxed text-slate-300">
-              Proposed token naming: <span className="text-amber-300">Hypersnap / $HSNAP</span>.
-              It is the clearest option because it names the fork directly, avoids implying an
-              official Farcaster token, has early community momentum from the allocation checker,
-              and had no exact-symbol hits in a quick Dexscreener / CoinGecko pass. My backups
-              would be $SNAPX if we want a sharper fork brand, or $HCAST if we want a more
-              protocol-native Hypercast direction.
+              Updated proposal: <span className="text-amber-300">Snap as the name, HSNAP as the safest ticker</span>. Cassie is right that the project can claim continuity with the open Snapchain lineage rather than framing itself as merely non-canonical. The reason I would still hesitate on $SNAP as the actual ticker is practical: SNAP is the NYSE ticker for Snap Inc. / Snapchat and also has existing crypto-symbol collisions. If the team wants the strongest ideological name, use Snap. If it wants a lower-confusion launch ticker, use $HSNAP.
             </p>
           </div>
         </Section>
