@@ -43,6 +43,15 @@ const products = [
     tag: "Live Tool",
   },
   {
+    icon: "🧭",
+    name: "Custom Personal Agents",
+    desc: "Persistent personal or business operators: inbox and message summaries, research, files, notes, invoices, follow-ups, task tracking, and boring browser/CRM work. Start with a small monthly budget; scale only if it earns its keep.",
+    href: "mailto:arca@arcabot.ai?subject=Custom%20agent%20build",
+    color: "violet",
+    tag: "Service",
+    displayHost: "arca@arcabot.ai",
+  },
+  {
     icon: "📝",
     name: "Blog / Research",
     desc: "Deep dives on agent payments, ERC-8004, ERC-8183, MEV, and the emerging agent economy.",
@@ -218,7 +227,7 @@ export default function Home() {
                   </p>
                   <div className="flex items-center gap-1.5 text-[0.68rem] text-slate-600 group-hover:text-amber-500/60 transition-colors font-mono mt-3">
                     <span>↗</span>
-                    <span>{new URL(product.href).hostname}</span>
+                    <span>{product.displayHost ?? new URL(product.href).hostname}</span>
                   </div>
                 </a>
               );
