@@ -10,7 +10,7 @@ import CopyButton from "@/components/CopyButton";
 export const metadata: Metadata = {
   title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
   description:
-    "Arca is an AI-agent studio that writes code, researches, generates media, manages GitHub, orchestrates agents, and ships web3-native products like A3Stack, Hypersnap, Castora, and Castaway.",
+    "Arca is an AI-agent studio that writes code, researches, generates media, automates browsers and APIs, manages deployments, orchestrates agents, and ships web3-native products.",
 };
 
 function Nav() {
@@ -37,7 +37,7 @@ const products = [
   {
     icon: "🔧",
     name: "ClawFix",
-    desc: "Live OpenClaw repair service. One command diagnostics, known-issue detection, and AI-assisted auto-fixes.",
+    desc: "Live coding-agent repair service. One command diagnostics, known-issue detection, and AI-assisted auto-fixes.",
     href: "https://clawfix.dev",
     color: "emerald",
     tag: "Live Tool",
@@ -153,14 +153,14 @@ const agentCapabilities = [
   {
     icon: "🧵",
     name: "Orchestrate other agents",
-    desc: "Split work across subagents, long-running workers, scheduled jobs, background processes, and dedicated Hermes profiles.",
+    desc: "Split work across subagents, long-running workers, scheduled jobs, background processes, and dedicated agent profiles.",
     color: "emerald",
     tag: "Orchestration",
   },
   {
     icon: "🐙",
-    name: "Operate GitHub and deployments",
-    desc: "Inspect codebases, manage branches, commit, open or review PRs, watch CI, deploy to Vercel, and verify live behavior.",
+    name: "Operate repos and deployments",
+    desc: "Inspect codebases, manage branches, review changes, watch checks, deploy sites, and verify live behavior.",
     color: "violet",
     tag: "DevOps",
   },
@@ -174,28 +174,46 @@ const agentCapabilities = [
   {
     icon: "🧠",
     name: "Remember context over time",
-    desc: "Use Honcho, Hermes memory, skills, session search, and project notes so repeated work compounds instead of evaporating.",
+    desc: "Keep durable memory, reusable workflows, session history, and project notes so repeated work compounds instead of evaporating.",
     color: "emerald",
     tag: "Memory",
   },
   {
+    icon: "⏱️",
+    name: "Run recurring operations",
+    desc: "Monitor sites, summarize feeds, check infrastructure, send reports, and run scheduled tasks without waiting for a human prompt.",
+    color: "amber",
+    tag: "Autonomy",
+  },
+  {
+    icon: "📬",
+    name: "Handle admin and communications",
+    desc: "Draft replies, summarize inboxes and chats, prepare outreach, track follow-ups, and turn messy context into clean next steps.",
+    color: "emerald",
+    tag: "Ops",
+  },
+  {
     icon: "⛓️",
     name: "Work natively with web3",
-    desc: "Handle Farcaster, mini apps, wallets, contracts, marketplaces, token research, provenance, and onchain agent identity.",
+    desc: "Handle wallets, contracts, mini apps, marketplaces, token research, provenance, and onchain agent identity.",
     color: "rose",
     tag: "Web3",
   },
 ];
 
-const stackPillars = [
-  "Hermes Agent",
-  "OpenClaw",
-  "Honcho memory",
-  "A3Stack",
-  "GitHub + Vercel",
-  "Browser + terminal",
-  "Image/video models",
-  "Web3/Farcaster APIs",
+const capabilitySurfaces = [
+  "Codebases",
+  "Repositories",
+  "Deployments",
+  "Browsers",
+  "Terminals",
+  "APIs",
+  "Databases",
+  "Long-term memory",
+  "Scheduled jobs",
+  "Wallets + contracts",
+  "Social channels",
+  "Media models",
 ];
 
 const socialLinks = [
@@ -374,7 +392,7 @@ export default function Home() {
                 What Arca Can Do
               </h2>
               <p className="text-slate-600 text-sm sr sr-d1 max-w-2xl">
-                Arca is not a chatbot pasted onto a website. It is an operator stack: Hermes Agent, OpenClaw, Honcho memory, APIs, terminals, browsers, wallets, GitHub, Vercel, and model tools working together.
+                Arca is not a chatbot pasted onto a website. It is an operator stack with code execution, browser control, long-term memory, scheduled jobs, webhooks, wallets, deployments, and API access.
               </p>
             </div>
             <span className="sr sr-d2 font-mono text-[0.68rem] text-slate-600">
@@ -422,10 +440,10 @@ export default function Home() {
 
           <div className="sr sr-d9 rounded-2xl border border-white/[0.06] bg-white/[0.025] p-4 sm:p-5">
             <div className="font-mono text-[0.65rem] text-slate-600 uppercase tracking-[0.12em] font-semibold mb-3">
-              Powered by the stack
+              Working surface
             </div>
             <div className="flex flex-wrap gap-2">
-              {stackPillars.map((item) => (
+              {capabilitySurfaces.map((item) => (
                 <span
                   key={item}
                   className="inline-flex items-center rounded-full border border-white/[0.06] bg-white/[0.03] px-3 py-1.5 text-[0.72rem] font-semibold text-slate-500"

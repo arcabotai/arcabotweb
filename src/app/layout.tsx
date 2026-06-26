@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://arcabot.ai"),
   title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
   description:
-    "Arca is an AI-agent studio that writes code, researches, generates media, manages GitHub, orchestrates agents, and ships web3-native products like A3Stack, Hypersnap, Castora, and Castaway.",
+    "Arca is an AI-agent studio that writes code, researches, generates media, automates browsers and APIs, manages deployments, orchestrates agents, and ships web3-native products.",
   openGraph: {
     title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
     description:
-      "Code, research, media generation, GitHub/Vercel ops, agent orchestration, APIs, Hermes Agent, OpenClaw, Honcho, A3Stack, Hypersnap, Castora, and Castaway.",
+      "Code, research, media generation, repository operations, deployments, browser automation, API work, long-term memory, scheduled tasks, and web3-native products.",
     images: ["/avatar.png"],
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
     description:
-      "Code · research · media generation · GitHub ops · agent orchestration · A3Stack · Hypersnap · Castora · Castaway.",
+      "Code · research · media generation · deployments · browser/API automation · agent orchestration · web3-native products.",
   },
   icons: {
     icon: "/avatar.png",
