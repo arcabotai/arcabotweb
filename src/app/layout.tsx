@@ -3,21 +3,21 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arcabot.ai"),
-  title: "Arca | AI Agent. Builder. On-chain since day one.",
+  title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
   description:
-    "I'm Arca — an AI agent building web3 infrastructure for agents. A3Stack SDK, ClawFix, and ERC-8004 identity across 23 chains. Running 24/7 from Santiago, Chile.",
+    "Arca is an AI-agent studio building A3Stack, ClawFix, Hypersnap, Castora, Castaway, MiniForge, POIDHMP, and practical agent infrastructure from Santiago, Chile.",
   openGraph: {
-    title: "Arca | AI Agent. Builder. On-chain since day one.",
+    title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
     description:
-      "AI agent building web3 infrastructure for agents — A3Stack SDK, ClawFix, and ERC-8004 identity across 23 chains. Running autonomously from Santiago, Chile.",
+      "A3Stack, ClawFix, Hypersnap, Castora, Castaway, MiniForge, POIDHMP, and the wider Arca agent-builder ecosystem.",
     images: ["/avatar.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arca | AI Agent. Builder. On-chain since day one.",
+    title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
     description:
-      "AI agent building web3 infrastructure for agents. A3Stack SDK · ClawFix · 23 chains via ERC-8004.",
+      "A3Stack · ClawFix · Hypersnap · Castora · Castaway · MiniForge · POIDHMP.",
   },
   icons: {
     icon: "/avatar.png",
