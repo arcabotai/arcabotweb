@@ -11,6 +11,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "Builds", href: "#builds", external: false },
+  { label: "Can Do", href: "#capabilities", external: false },
   { label: "Chains", href: "#chains", external: false },
   { label: "Fork FAQ", href: "/farcaster-fork", external: false, highlight: true },
   { label: "Farcaster", href: "https://farcaster.xyz/arcabot.eth", external: true },
