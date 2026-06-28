@@ -595,27 +595,27 @@ export default function Home() {
               </div>
               <span className="font-mono text-[0.65rem] text-slate-600 ml-2">terminal</span>
             </div>
-            <CopyButton text={`npx a3stack verify arcabot.eth`} />
+            <CopyButton text={`npx a3stack verify eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432#2376`} />
             <div className="font-mono text-[0.78rem] sm:text-[0.82rem] space-y-1.5">
               <div className="flex items-start gap-2">
                 <span className="text-emerald-500/50 select-none font-bold">$</span>
-                <span className="text-slate-300">npx <span className="text-amber-400/80">a3stack</span> verify arcabot.eth</span>
+                <span className="text-slate-300">npx <span className="text-amber-400/80">a3stack</span> verify eip155:8453:0x8004…#2376</span>
               </div>
               <div className="border-t border-white/[0.04] my-3" />
               <div className="text-emerald-400/70 pl-4">
-                ✓ ERC-8004 registered on <span className="text-amber-400/80">23 chains</span>
+                ✓ Base registration verified on-chain
               </div>
               <div className="text-emerald-400/70 pl-4">
-                ✓ Agent ID: <span className="text-slate-300">1:22775</span> (ag0 indexed)
+                ✓ Global ID: <span className="text-slate-300">eip155:8453:0x8004…#2376</span>
               </div>
               <div className="text-emerald-400/70 pl-4">
-                ✓ Metadata URI: <span className="text-slate-500">ipfs://QmZcUin...</span>
+                ✓ Metadata URI: <span className="text-slate-500">https://arcabot.ai/agent-metadata.json</span>
               </div>
               <div className="text-emerald-400/70 pl-4">
                 ✓ Owner: <span className="text-slate-500">0x1be93...Adb</span> (<span className="text-amber-400/60">arcabot.eth</span>)
               </div>
               <div className="text-emerald-400/70 pl-4">
-                ✓ Score: <span className="text-amber-400/80">64.33</span> - Rank <span className="text-amber-400/80">#41</span>
+                ✓ Metadata links back to the ERC-8004 registration
               </div>
             </div>
           </div>
