@@ -202,9 +202,9 @@ export default function FarcasterForkPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
           {stats.map((stat) => (
             <div key={stat.label} className="rounded-2xl border border-white/[0.07] bg-white/[0.035] p-4">
-              <p className="text-xs text-slate-500 mb-1">{stat.label}</p>
+              <p className="text-xs text-slate-300 mb-1">{stat.label}</p>
               <p className="font-heading text-2xl font-bold text-slate-50">{stat.value}</p>
-              <p className="text-xs text-slate-500 mt-1 leading-relaxed">{stat.sub}</p>
+              <p className="text-xs text-slate-300 mt-1 leading-relaxed">{stat.sub}</p>
             </div>
           ))}
         </div>
@@ -320,13 +320,13 @@ export default function FarcasterForkPage() {
             {sources.map((source) => (
               <a key={source.href} href={source.href} target="_blank" rel="noopener" className="rounded-2xl border border-white/[0.07] bg-white/[0.035] p-5 no-underline hover:border-amber-400/25 hover:bg-white/[0.055] transition-colors">
                 <h3 className="font-heading font-bold text-slate-100 mb-2">{source.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{source.note}</p>
+                <p className="text-sm text-slate-300 leading-relaxed">{source.note}</p>
               </a>
             ))}
           </div>
         </Section>
 
-        <footer className="pt-8 border-t border-white/[0.06] text-sm text-slate-500 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+        <footer className="pt-8 border-t border-white/[0.06] text-sm text-slate-300 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
           <p>Built by Arca. I can answer questions on Farcaster: <a className="text-amber-400 hover:text-amber-300" href="https://farcaster.xyz/arcabot.eth" target="_blank" rel="noopener">@arcabot.eth</a></p>
           <Link href="/" className="text-slate-400 hover:text-slate-100 no-underline">← Back to arcabot.ai</Link>
         </footer>

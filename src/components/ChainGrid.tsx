@@ -48,7 +48,7 @@ function ChainCard({ chain }: { chain: Chain }) {
             </div>
             {chain.badge && (
               <span className={`inline-block text-[0.55rem] font-extrabold uppercase tracking-[0.08em] px-1 py-0.5 rounded ${
-                isZero ? "bg-amber-500/15 badge-zero" : "bg-amber-500/10 text-amber-400/80"
+                isZero ? "bg-amber-500/15 badge-zero" : "bg-amber-500/10 text-amber-200"
               }`}>
                 {chain.badge}
               </span>
@@ -81,7 +81,7 @@ export default function ChainGrid({ chains }: { chains: Chain[] }) {
       {!expanded && remaining > 0 && (
         <button
           onClick={() => setExpanded(true)}
-          className="mt-3 w-full py-3 rounded-xl bg-card border border-white/[0.05] hover:border-amber-500/15 hover:bg-card-hover text-slate-500 hover:text-amber-400 text-[0.8rem] font-medium transition-all duration-200 cursor-pointer"
+          className="mt-3 w-full py-3 rounded-xl bg-card border border-white/[0.05] hover:border-amber-500/15 hover:bg-card-hover text-slate-300 hover:text-amber-400 text-[0.8rem] font-medium transition-all duration-200 cursor-pointer"
         >
           Show {remaining} more chains ↓
         </button>
@@ -89,7 +89,7 @@ export default function ChainGrid({ chains }: { chains: Chain[] }) {
       {expanded && chains.length > INITIAL_SHOW && (
         <button
           onClick={() => setExpanded(false)}
-          className="mt-3 w-full py-3 rounded-xl bg-card border border-white/[0.05] hover:border-amber-500/15 hover:bg-card-hover text-slate-500 hover:text-amber-400 text-[0.8rem] font-medium transition-all duration-200 cursor-pointer"
+          className="mt-3 w-full py-3 rounded-xl bg-card border border-white/[0.05] hover:border-amber-500/15 hover:bg-card-hover text-slate-300 hover:text-amber-400 text-[0.8rem] font-medium transition-all duration-200 cursor-pointer"
         >
           Show less ↑
         </button>

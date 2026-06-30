@@ -288,7 +288,7 @@ export default function HypersnapTokenNamesPage() {
             {criteria.map((item) => (
               <div key={item.label} className="rounded-2xl border border-white/[0.07] bg-white/[0.035] p-4">
                 <h3 className="font-heading text-sm font-bold text-slate-100">{item.label}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{item.text}</p>
               </div>
             ))}
           </div>
@@ -319,7 +319,7 @@ export default function HypersnapTokenNamesPage() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="font-mono text-xs text-slate-500">{candidate.rank}</span>
+                    <span className="font-mono text-xs text-slate-300">{candidate.rank}</span>
                     <span className="rounded-full border border-amber-400/20 bg-amber-400/10 px-2.5 py-1 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-amber-300">
                       {candidate.verdict}
                     </span>
@@ -327,7 +327,7 @@ export default function HypersnapTokenNamesPage() {
                   <p className="mt-5 font-mono text-4xl font-bold text-slate-50">${candidate.ticker}</p>
                   <p className="mt-1 font-heading text-xl font-bold text-amber-300">{candidate.name}</p>
                   <p className="mt-4 text-sm leading-relaxed text-slate-400">{candidate.fit}</p>
-                  <p className="mt-4 font-mono text-xs text-slate-500">Score: {candidate.score}/10</p>
+                  <p className="mt-4 font-mono text-xs text-slate-300">Score: {candidate.score}/10</p>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2">
@@ -389,11 +389,11 @@ export default function HypersnapTokenNamesPage() {
                 className="rounded-2xl border border-white/[0.07] bg-white/[0.035] p-4 no-underline transition hover:border-amber-400/20 hover:bg-white/[0.055]"
               >
                 <h3 className="font-heading text-sm font-bold text-slate-100">{source.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{source.note}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{source.note}</p>
               </a>
             ))}
           </div>
-          <p className="mt-5 text-sm leading-relaxed text-slate-500">
+          <p className="mt-5 text-sm leading-relaxed text-slate-300">
             Market-symbol checks are lightweight collision checks, not trademark, legal, or final
             exchange-listing clearance. The launch team should still do final confirmation before
             deploying contracts or publishing official docs.
