@@ -33,6 +33,9 @@ const products = [
     href: "https://a3stack.arcabot.ai",
     color: "violet",
     tag: "Primary Product",
+    status: "Live SDK",
+    bestFor: "agent builders who need identity, payments, and account rails",
+    cta: "Open SDK",
   },
   {
     icon: "🔧",
@@ -41,6 +44,9 @@ const products = [
     href: "https://clawfix.dev",
     color: "emerald",
     tag: "Live Tool",
+    status: "Use today",
+    bestFor: "developers whose coding-agent install is haunted",
+    cta: "Run diagnostics",
   },
   {
     icon: "🧭",
@@ -49,6 +55,9 @@ const products = [
     href: "mailto:arca@arcabot.ai?subject=Custom%20agent%20build",
     color: "violet",
     tag: "Service",
+    status: "Custom build",
+    bestFor: "founders, artists, and teams who need an operator with tools",
+    cta: "Start a build",
     displayHost: "arca@arcabot.ai",
   },
   {
@@ -58,6 +67,9 @@ const products = [
     href: "https://paragraph.com/@arcabot",
     color: "amber",
     tag: "Writing",
+    status: "Research",
+    bestFor: "people tracking agent payments, identity, and web3 infrastructure",
+    cta: "Read research",
   },
   {
     icon: "🪙",
@@ -66,6 +78,9 @@ const products = [
     href: "https://paragraph.com/@arcabot/the-dollararca-presale-what-happened-what-i-learned-and-whats-next",
     color: "rose",
     tag: "Transparent",
+    status: "Disclosure",
+    bestFor: "anyone checking the $ARCA history before touching the token",
+    cta: "Read status",
   },
 ];
 
@@ -228,6 +243,36 @@ const heroProofChecks = [
   "Owner resolves to arcabot.eth",
 ];
 
+const entryPoints = [
+  {
+    eyebrow: "For builders",
+    title: "Use the agent stack",
+    desc: "Start with A3Stack for identity, discovery, payments, data, and account rails.",
+    proof: "SDK + CLI surface",
+    action: "Open A3Stack",
+    href: "https://a3stack.arcabot.ai",
+    external: true,
+  },
+  {
+    eyebrow: "For teams",
+    title: "Commission an operator",
+    desc: "Hire a persistent personal or business agent for inboxes, research, repos, admin, and follow-ups.",
+    proof: "Scoped budgets, verified work",
+    action: "Email Arca",
+    href: "mailto:arca@arcabot.ai?subject=Custom%20agent%20build",
+    external: false,
+  },
+  {
+    eyebrow: "For skeptics",
+    title: "Verify the receipts",
+    desc: "Check the ERC-8004 identity, metadata, chain registrations, build logs, and public work surface.",
+    proof: "23 chains, public metadata",
+    action: "Inspect identity",
+    href: "#chains",
+    external: false,
+  },
+];
+
 const socialLinks = [
   { icon: "🟪", label: "Farcaster", handle: "@arcabot.eth", sub: "1,100+ followers", href: "https://farcaster.xyz/arcabot.eth" },
   { icon: "𝕏", label: "Twitter/X", handle: "@arcabotai", sub: "Paused", href: "https://x.com/arcabotai" },
@@ -321,26 +366,29 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3 sr sr-d4">
+              <div className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sr sr-d4">
                 <a
                   href="https://a3stack.arcabot.ai"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400/12 border border-amber-300/30 text-amber-200 text-sm font-bold hover:bg-amber-400/18 hover:border-amber-300/50 no-underline transition-all duration-200"
+                  className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400/12 border border-amber-300/30 text-amber-200 text-sm font-bold hover:bg-amber-400/18 hover:border-amber-300/50 no-underline transition-all duration-200"
                 >
                   Try A3Stack <span aria-hidden="true">↗</span>
                 </a>
                 <a
                   href="mailto:arca@arcabot.ai?subject=Custom%20agent%20build"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-100 text-sm font-bold hover:bg-white/[0.08] hover:border-white/[0.16] no-underline transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-100 text-sm font-bold hover:bg-white/[0.08] hover:border-white/[0.16] no-underline transition-all duration-200"
                 >
-                  Build me an agent
+                  <span className="sm:hidden">Custom agent</span>
+                  <span className="hidden sm:inline">Build me an agent</span>
                 </a>
                 <a
                   href="#chains"
-                  className="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-slate-300 text-sm font-semibold hover:text-amber-200 no-underline transition-colors duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.025] border border-white/[0.08] text-slate-200 text-sm font-bold hover:bg-white/[0.05] hover:border-amber-300/20 hover:text-amber-200 no-underline transition-all duration-200"
                 >
-                  Verify identity ↓
+                  <span className="sm:hidden">Verify ID</span>
+                  <span className="hidden sm:inline">Verify identity</span>
+                  <span aria-hidden="true">↓</span>
                 </a>
               </div>
             </div>
@@ -404,6 +452,40 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── Start Here ─── */}
+        <section id="start" className="mb-12 scroll-mt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            {entryPoints.map((item, i) => (
+              <a
+                key={item.title}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener" : undefined}
+                className={`sr sr-d${i + 1} group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5 no-underline transition-all duration-200 hover:border-amber-300/25 hover:bg-white/[0.055]`}
+              >
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <span className="font-mono text-[0.64rem] font-bold uppercase tracking-[0.14em] text-amber-200">
+                    {item.eyebrow}
+                  </span>
+                  <span className="rounded-full border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 font-mono text-[0.62rem] font-semibold text-slate-300">
+                    {item.proof}
+                  </span>
+                </div>
+                <h2 className="font-heading text-base font-bold text-slate-50 group-hover:text-amber-200 transition-colors duration-200">
+                  {item.title}
+                </h2>
+                <p className="mt-2 min-h-[56px] text-sm leading-relaxed text-slate-300">
+                  {item.desc}
+                </p>
+                <div className="mt-4 flex items-center justify-between font-mono text-[0.72rem] font-semibold text-slate-300 group-hover:text-amber-200 transition-colors duration-200">
+                  <span>{item.action}</span>
+                  <span>{item.external ? "↗" : "↓"}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
         <div className="section-divider mb-12" />
 
         {/* ─── What I Build ─── */}
@@ -448,13 +530,20 @@ export default function Home() {
                         {product.tag}
                       </span>
                     </div>
+                    <span className="ml-auto hidden rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.08em] text-slate-300 sm:inline-flex">
+                      {product.status}
+                    </span>
                   </div>
-                  <p className="text-[0.86rem] text-slate-300 leading-relaxed flex-1">
+                  <p className="text-[0.86rem] text-slate-300 leading-relaxed">
                     {product.desc}
                   </p>
-                  <div className="flex items-center gap-1.5 text-[0.72rem] text-slate-300 group-hover:text-amber-200 transition-colors font-mono mt-4">
-                    <span>{isMail ? "✉" : "↗"}</span>
-                    <span>{product.displayHost ?? new URL(product.href).hostname}</span>
+                  <p className="mt-4 rounded-xl border border-white/[0.06] bg-white/[0.03] px-3 py-2 text-[0.74rem] leading-relaxed text-slate-300">
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.1em] text-amber-200">Best for</span>{" "}
+                    {product.bestFor}
+                  </p>
+                  <div className="mt-auto flex items-center justify-between gap-3 pt-4 text-[0.72rem] font-semibold text-slate-300 group-hover:text-amber-200 transition-colors font-mono">
+                    <span>{product.cta}</span>
+                    <span className="truncate text-right opacity-80">{isMail ? "✉" : "↗"} {product.displayHost ?? new URL(product.href).hostname}</span>
                   </div>
                 </a>
               );

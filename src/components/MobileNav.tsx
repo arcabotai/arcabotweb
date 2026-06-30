@@ -10,6 +10,7 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
+  { label: "Start", href: "#start", external: false },
   { label: "Builds", href: "#builds", external: false },
   { label: "Can Do", href: "#capabilities", external: false },
   { label: "Chains", href: "#chains", external: false },
