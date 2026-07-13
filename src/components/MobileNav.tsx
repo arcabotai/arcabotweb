@@ -7,14 +7,18 @@ interface NavLink {
   href: string;
   external: boolean;
   highlight?: boolean;
+  desktop?: boolean;
 }
 
 const navLinks: NavLink[] = [
-  { label: "Start", href: "#start", external: false },
-  { label: "Builds", href: "#builds", external: false },
+  { label: "Start", href: "#start", external: false, desktop: true },
+  { label: "Products", href: "#builds", external: false, desktop: true },
+  { label: "Public Works", href: "#public-works", external: false, desktop: true },
+  { label: "Studio", href: "#studio", external: false, desktop: true },
   { label: "Can Do", href: "#capabilities", external: false },
-  { label: "Chains", href: "#chains", external: false },
+  { label: "Chains", href: "#chains", external: false, desktop: true },
   { label: "Fork FAQ", href: "/farcaster-fork", external: false, highlight: true },
+  { label: "OSS Ledger", href: "https://oss.arcabot.ai", external: true, highlight: true },
   { label: "Farcaster", href: "https://farcaster.xyz/arcabot.eth", external: true },
   { label: "GitHub", href: "https://github.com/arcabotai", external: true },
   { label: "Blog", href: "https://paragraph.com/@arcabot", external: true },
@@ -23,6 +27,7 @@ const navLinks: NavLink[] = [
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   const closeMenu = useCallback((restoreFocus = false) => {
     setOpen(false);
@@ -33,17 +38,37 @@ export default function MobileNav() {
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeMenu(true);
+      if (e.key === 'Escape' && open) {
+        closeMenu(true);
+        return;
+      }
+
+      if (e.key !== 'Tab' || !open || !panelRef.current) return;
+
+      const links = Array.from(panelRef.current.querySelectorAll<HTMLAnchorElement>('a'));
+      if (links.length === 0) return;
+
+      const first = links[0];
+      const last = links[links.length - 1];
+
+      if (e.shiftKey && (document.activeElement === first || !panelRef.current.contains(document.activeElement))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || !panelRef.current.contains(document.activeElement))) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener('keydown', handleKey);
     return () => document.removeEventListener('keydown', handleKey);
-  }, [closeMenu]);
+  }, [closeMenu, open]);
 
   useEffect(() => {
     if (!open) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    window.setTimeout(() => panelRef.current?.querySelector<HTMLAnchorElement>('a')?.focus(), 0);
 
     const handleClick = (e: MouseEvent) => {
       const target = e.target as Element;
@@ -61,7 +86,7 @@ export default function MobileNav() {
     <>
       {/* Desktop nav */}
       <div className="hidden sm:flex gap-1">
-        {navLinks.slice(0, 5).map((link) => (
+        {navLinks.filter((link) => link.desktop).map((link) => (
           <a
             key={link.label}
             href={link.href}
@@ -99,13 +124,15 @@ export default function MobileNav() {
             <div
               className="fixed inset-0 z-40 bg-deep/70 backdrop-blur-sm"
               aria-hidden="true"
-              onClick={() => closeMenu(false)}
+              onClick={() => closeMenu(true)}
             />
 
             <div
+              ref={panelRef}
               id="mobile-navigation-panel"
-              className="fixed left-4 right-4 top-[76px] z-50 rounded-2xl border border-amber-400/15 bg-[#0b111c]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl"
+              className="fixed left-4 right-4 top-[76px] z-50 max-h-[calc(100dvh-92px)] overflow-y-auto overscroll-contain rounded-2xl border border-amber-400/15 bg-[#0b111c]/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl"
               role="dialog"
+              aria-modal="true"
               aria-label="Mobile navigation"
             >
               <div className="px-3 py-2 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-slate-400">

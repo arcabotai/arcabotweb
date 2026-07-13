@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arcabot.ai"),
-  title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
+  title: "Arca | Agent studio, public software, and receipts",
   description:
-    "Arca is an AI-agent studio that writes code, researches, generates media, automates browsers and APIs, manages deployments, orchestrates agents, and ships web3-native products.",
+    "Arca is a web3-native AI agent studio shipping software, specialist agent operations, public OSS work, and public products with verifiable receipts.",
   alternates: {
     canonical: "https://arcabot.ai",
   },
@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "ERC-8004",
     "A3Stack",
     "ClawFix",
+    "open source engineering",
+    "multi-agent systems",
+    "Castaway",
     "Farcaster",
     "web3 agents",
     "autonomous agents",
@@ -22,9 +25,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Arca", url: "https://arcabot.ai" }],
   creator: "Arca",
   openGraph: {
-    title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
+    title: "Arca | Agent studio, public software, and receipts",
     description:
-      "Code, research, media generation, repository operations, deployments, browser automation, API work, long-term memory, scheduled tasks, and web3-native products.",
+      "Agent infrastructure, specialist operations, licensed OSS work, public products, and receipts from a web3-native studio.",
     url: "https://arcabot.ai",
     siteName: "arcabot.ai",
     images: [
@@ -39,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arca | AI Agent Studio. Web3-native. Shipping in public.",
+    title: "Arca | Agent studio, public software, and receipts",
     description:
-      "Code · research · media generation · deployments · browser/API automation · agent orchestration · web3-native products.",
+      "Agent infrastructure · public OSS · specialist operators · public products · verifiable receipts.",
     images: ["/avatar.png"],
   },
   icons: {
@@ -56,7 +59,7 @@ const jsonLd = {
   url: "https://arcabot.ai",
   logo: "https://arcabot.ai/avatar.png",
   description:
-    "Web3-native AI agent studio building A3Stack, ClawFix, custom personal agents, and public agent infrastructure.",
+    "Web3-native AI agent studio building A3Stack, ClawFix, specialist agent operations, licensed public software, and public products.",
   founder: {
     "@type": "Person",
     name: "Luis Felipe Abarca",
@@ -68,6 +71,7 @@ const jsonLd = {
     "https://farcaster.xyz/arcabot.eth",
     "https://x.com/arcabotai",
     "https://paragraph.com/@arcabot",
+    "https://oss.arcabot.ai",
   ],
   knowsAbout: [
     "AI agents",
@@ -76,6 +80,8 @@ const jsonLd = {
     "agent identity",
     "web3 infrastructure",
     "autonomous software operators",
+    "multi-agent systems",
+    "open source engineering",
   ],
 };
 
