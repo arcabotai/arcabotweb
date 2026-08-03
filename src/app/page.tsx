@@ -233,9 +233,62 @@ const capabilitySurfaces = [
 ];
 
 const publicWorksStats = [
-  { value: "Licensed", label: "repositories indexed" },
-  { value: "Public", label: "upstream receipts" },
-  { value: "#104893", label: "merged into OpenClaw" },
+  { value: "4", label: "accepted upstream projects" },
+  { value: "6", label: "accepted merge receipts" },
+  { value: "2", label: "active support lanes" },
+];
+
+const upstreamContributions = [
+  {
+    name: "Hermes Agent",
+    logo: "/upstream/hermes.png",
+    role: "Merged commit author",
+    proof: "5 Cad-authored commits · PR #76400",
+    href: "https://github.com/NousResearch/hermes-agent/pull/76400",
+    state: "accepted",
+  },
+  {
+    name: "OpenClaw",
+    logo: "/upstream/openclaw.svg",
+    role: "Upstream contributor",
+    proof: "2 authored PRs merged",
+    href: "https://github.com/arcabotai/arca-openclaw-contributions",
+    state: "accepted",
+  },
+  {
+    name: "Crabbox",
+    logo: "/upstream/crabbox.jpg",
+    role: "Upstream contributor",
+    proof: "Authored PR #1192 merged",
+    href: "https://github.com/openclaw/crabbox/pull/1192",
+    state: "accepted",
+    wide: true,
+  },
+  {
+    name: "ClickClack",
+    logo: "/upstream/clickclack.png",
+    role: "Upstream co-contributor",
+    proof: "2 merged co-author credits",
+    href: "https://github.com/openclaw/clickclack/pull/91",
+    state: "accepted",
+  },
+  {
+    name: "Buzz",
+    logo: "/upstream/buzz.png",
+    role: "Contributor + reviewer",
+    proof: "Open PR + public code review",
+    href: "https://github.com/block/buzz/pull/3963",
+    state: "active",
+  },
+  {
+    name: "Hypersnap",
+    logo: "/upstream/hypersnap.png",
+    role: "Tooling maintainer + reviewer",
+    proof: "Operator toolkit + upstream review",
+    href: "https://github.com/farcasterorg/hypersnap/pull/10#pullrequestreview-4177281968",
+    state: "active",
+    wide: true,
+  },
 ];
 
 const agentRoster = [
@@ -614,10 +667,43 @@ export default function Home() {
                 ))}
               </div>
 
+              <div className="mb-5">
+                <div className="mb-2 font-mono text-[0.62rem] font-bold uppercase tracking-[0.12em] text-slate-400">Upstream ecosystems</div>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {upstreamContributions.map((project) => (
+                    <a
+                      key={project.name}
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener"
+                      className="group flex min-h-[82px] items-center gap-3 rounded-2xl border border-white/[0.07] bg-white/[0.03] p-3 no-underline transition-colors hover:border-amber-300/25 hover:bg-white/[0.055]"
+                    >
+                      <span className={`grid h-12 shrink-0 place-items-center overflow-hidden rounded-xl border border-white/[0.08] bg-[#060a12] ${project.wide ? "w-20" : "w-12"}`}>
+                        <Image
+                          src={project.logo}
+                          alt={`${project.name} logo`}
+                          width={project.wide ? 72 : 44}
+                          height={44}
+                          className="max-h-10 w-auto object-contain"
+                        />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="flex items-center gap-2">
+                          <strong className="font-heading text-sm text-slate-100 group-hover:text-amber-200">{project.name}</strong>
+                          <span className={`rounded-full border px-1.5 py-0.5 font-mono text-[0.5rem] font-bold uppercase tracking-[0.08em] ${project.state === "accepted" ? "border-emerald-300/20 bg-emerald-400/[0.07] text-emerald-200" : "border-amber-300/20 bg-amber-400/[0.07] text-amber-200"}`}>{project.state}</span>
+                        </span>
+                        <span className="mt-0.5 block text-[0.68rem] font-semibold text-slate-300">{project.role}</span>
+                        <span className="mt-1 block font-mono text-[0.58rem] leading-tight text-slate-400">{project.proof}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               <div className="rounded-2xl border border-white/[0.08] bg-[#060a12] p-4 font-mono text-[0.72rem] leading-relaxed">
-                <p className="text-slate-400">merged receipt</p>
-                <a href="https://github.com/openclaw/openclaw/pull/104893" target="_blank" rel="noopener" className="mt-2 block text-emerald-200 no-underline hover:text-emerald-100">
-                  ✓ openclaw/openclaw#104893 — stale Discord preview cleanup <span aria-hidden="true">↗</span>
+                <p className="text-slate-400">latest accepted receipt</p>
+                <a href="https://github.com/NousResearch/hermes-agent/pull/76400" target="_blank" rel="noopener" className="mt-2 block text-emerald-200 no-underline hover:text-emerald-100">
+                  ✓ NousResearch/hermes-agent#76400 — SSH profile mapping, Cad authorship preserved <span aria-hidden="true">↗</span>
                 </a>
                 <p className="mt-3 text-slate-400">Open candidates and current review states are tracked on the ledger instead of being fossilized here.</p>
               </div>

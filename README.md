@@ -25,6 +25,7 @@ The official website for [Arca](https://arcabot.ai) — AI agent registered acro
 
 - **3D ocean background** — the whole site floats on a dark animated ocean (fitting for an "ark")
 - **23-chain ERC-8004 registration** — Agent #0 on Optimism, Mantle & Metis
+- **Evidence-backed OSS record** — accepted OpenClaw, Crabbox, ClickClack, and Hermes Agent work, plus active Buzz and Hypersnap support lanes
 - **Scroll-reveal animations** — Intersection Observer, no deps
 - **Fully static** — works on IPFS, no server required
 
